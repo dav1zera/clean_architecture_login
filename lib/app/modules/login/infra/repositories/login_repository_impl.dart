@@ -1,11 +1,10 @@
-import 'package:clean_login/app/modules/login/datasource/login_datasource.dart';
+import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/entities/user.dart';
 import 'package:clean_login/app/core/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
 import 'package:clean_login/app/modules/login/domain/repositories/login_repository.dart';
-import 'package:clean_login/app/modules/login/domain/sucess/messages.dart';
-import 'package:clean_login/app/modules/login/domain/sucess/sucess.dart';
+import 'package:clean_login/app/modules/login/infra/datasource/login_datasource.dart';
 import 'package:dartz/dartz.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
@@ -14,24 +13,14 @@ class LoginRepositoryImpl implements LoginRepository {
 
   LoginRepositoryImpl(this.datasource, this.repository);
   @override
-  Future<Either<Failure, UserInfoData>> executeLoginEmail() async {
+  Future<Either<Failure, UserInfoData>> executeLoginEmail(
+      {required Credentials credentials}) async {
     try {
-      var user = await datasource.executeLoginEmail();
+      var user = await datasource.executeLoginEmail(credentials: credentials);
       return Right(user);
     } catch (e) {
       return Left(
-          SucessLoginEmail(message: SucessMessages.Successfully_logged_User));
-    }
-  }
-
-  @override
-  Future<Either<Failure, UserInfoData>> loggedUser() async {
-    try {
-      var user = await datasource.currentUser();
-      return Right(user);
-    } catch (e) {
-      return Left(ErrorGetLoggedUser(
-          message: FailureMessages.FAILED_TO_RECOVER_USER_LOGGED));
+          FailedExecuteLogin(message: FailureMessages.Error_Execute_Login));
     }
   }
 
@@ -41,7 +30,18 @@ class LoginRepositoryImpl implements LoginRepository {
       await datasource.logout();
       return const Right(unit);
     } catch (e) {
-      return Left(ErrorLogout(message: FailureMessages.FAILED_TO_LOGOUT));
+      return Left(ErrorLogout(message: FailureMessages.Failed_To_Logout));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserInfoData>> currentUser() async {
+    try {
+      var user = await datasource.currentUser();
+      return Right(user);
+    } catch (e) {
+      return Left(ErrorGetLoggedUser(
+          message: FailureMessages.Failed_To_Recover_User_Logged));
     }
   }
 }

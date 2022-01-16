@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
 import 'package:clean_login/app/modules/login/domain/entities/user.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
@@ -9,6 +8,8 @@ import 'package:clean_login/app/modules/login/domain/usecases/login_with_email.d
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+
+
 
 class LoginRepositoryMock extends Mock implements LoginRepository {}
 

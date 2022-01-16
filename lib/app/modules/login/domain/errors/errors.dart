@@ -20,3 +20,9 @@ class ErrorLogout extends Failure {
   final String message;
   ErrorLogout({required this.message});
 }
+
+class FailedExecuteLogin extends Failure {
+  final String message;
+
+  FailedExecuteLogin({required this.message});
+}

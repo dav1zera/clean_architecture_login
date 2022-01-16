@@ -33,6 +33,6 @@ class LoginWithEmailImpl implements LoginWithEmail {
     if (!credentials.isPasswordValid) {
       return Left(ErrorLoginEmail(message: FailureMessages.Invalid_Password));
     }
-    return await loginRepository.executeLoginEmail();
+    return await loginRepository.executeLoginEmail(credentials: credentials);
   }
 }
