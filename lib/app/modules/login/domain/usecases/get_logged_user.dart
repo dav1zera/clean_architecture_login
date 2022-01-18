@@ -5,16 +5,16 @@ import 'package:clean_login/app/modules/login/infra/datasource/login_datasource.
 import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-abstract class GetLoggedUser {
+abstract class GetLoggedUserUseCase {
   Future<Either<Failure, UserInfoData>> call();
 }
 
 @Injectable(singleton: false)
-class GetLoggedUserImpl implements GetLoggedUser {
+class GetLoggedUserUseCaseImpl implements GetLoggedUserUseCase {
   final LoginDataSource dataSource;
   final LoginRepository repository;
 
-  GetLoggedUserImpl(this.dataSource, this.repository);
+  GetLoggedUserUseCaseImpl(this.dataSource, this.repository);
   @override
   Future<Either<Failure, UserInfoData>> call() async {
     return await repository.currentUser();

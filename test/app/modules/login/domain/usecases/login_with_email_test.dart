@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
 import 'package:clean_login/app/modules/login/domain/entities/user.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
@@ -9,8 +8,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-
-
 class LoginRepositoryMock extends Mock implements LoginRepository {}
 
 class ConnectivityServiceMock extends Mock implements ConnectivityService {}
@@ -19,7 +16,7 @@ main() {
   final repository = LoginRepositoryMock();
   final connectivityservice = ConnectivityServiceMock();
 
-  final usecase = LoginWithEmailImpl(repository, connectivityservice);
+  final usecase = LoginWithEmailUseCaseImpl(repository, connectivityservice);
 
   test(
     "test Failure call usecase",

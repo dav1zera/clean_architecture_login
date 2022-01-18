@@ -1,4 +1,5 @@
 import 'package:clean_login/app/core/pages/splash_screen_page.dart';
+import 'package:clean_login/app/modules/login/presentation/login_page.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class AppModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           "/",
-          child: (_, __) => SplashScreenPage(),
+          child: (_, __) => LoginPage(),
         ),
         ChildRoute(
           "/login",

@@ -10,16 +10,16 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 part 'login_with_email.g.dart';
 
-abstract class LoginWithEmail {
+abstract class LoginWithEmailUseCase {
   Future<Either<Failure, UserInfoData>> call(Credentials credentials);
 }
 
 @Injectable()
-class LoginWithEmailImpl implements LoginWithEmail {
+class LoginWithEmailUseCaseImpl implements LoginWithEmailUseCase {
   final LoginRepository loginRepository;
   final ConnectivityService connectivityService;
 
-  LoginWithEmailImpl(this.loginRepository, this.connectivityService);
+  LoginWithEmailUseCaseImpl(this.loginRepository, this.connectivityService);
   @override
   Future<Either<Failure, UserInfoData>> call(Credentials credentials) async {
     final isOnline = await connectivityService.isOnline();

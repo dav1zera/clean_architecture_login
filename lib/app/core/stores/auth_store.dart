@@ -6,7 +6,7 @@ import 'package:clean_login/app/modules/login/domain/usecases/logout.dart';
 import 'package:mobx/mobx.dart';
 
 abstract class AuthStore {
-  final GetLoggedUser getLoggedUser;
+  final GetLoggedUserUseCase getLoggedUser;
   final Logout logout;
 
   AuthStore(this.getLoggedUser, this.logout);
