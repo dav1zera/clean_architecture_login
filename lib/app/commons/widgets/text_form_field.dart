@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CampText extends StatelessWidget {
   final ValueChanged<String>? onChanged;
-  final LoginController controller;
+
   final List<TextInputFormatter>? inputFormatters;
   final GestureTapCallback? onTap;
   //final Credentials credentials;
@@ -26,7 +26,6 @@ class CampText extends StatelessWidget {
     this.height,
     this.width,
     this.image,
-    required this.controller,
     this.obscureText = false,
     //required this.credentials,
   }) : super(key: key);

@@ -4,6 +4,7 @@ import 'package:clean_login/app/modules/login/domain/repositories/login_reposito
 import 'package:clean_login/app/modules/login/infra/datasource/login_datasource.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+part 'get_logged_user.g.dart';
 
 abstract class GetLoggedUserUseCase {
   Future<Either<Failure, UserInfoData>> call();

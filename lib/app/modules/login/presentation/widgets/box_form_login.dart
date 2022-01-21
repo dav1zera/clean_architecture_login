@@ -9,8 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 class BoxFormLogin extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final LoginController controller;
-  //final Credentials credentials;
-  //final Validators validators;
 
   const BoxFormLogin({
     Key? key,
@@ -33,12 +31,11 @@ class BoxFormLogin extends StatelessWidget {
           text: "E-mail",
           image: "assets/images/man.png",
           //credentials: credentials,
-          controller: controller,
         ),
         CampText(
           text: "Senha",
           image: "assets/images/lock.png",
-          controller: controller,
+
           //credentials: credentials,
           obscureText: true,
         ),

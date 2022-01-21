@@ -1,8 +1,6 @@
 import 'package:clean_login/app/commons/widgets/custom_button.dart';
 import 'package:clean_login/app/commons/widgets/screen_image.dart';
 import 'package:clean_login/app/commons/widgets/urban_image.dart';
-import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
-import 'package:clean_login/app/modules/login/domain/validators/validators.dart';
 import 'package:clean_login/app/modules/login/presentation/login_controller.dart';
 import 'package:clean_login/app/modules/login/presentation/widgets/box_form_login.dart';
 import 'package:flutter/material.dart';

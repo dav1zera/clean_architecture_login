@@ -5,13 +5,19 @@ import 'package:clean_login/app/modules/login/domain/usecases/login_with_email.d
 import 'package:asuka/asuka.dart' as asuka;
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
 
-abstract class LoginController {
+part 'login_controller.g.dart';
+
+@Injectable()
+class LoginController = _LoginControllerBase with _$LoginController;
+
+abstract class _LoginControllerBase with Store {
   final LoginWithEmailUseCase loginWithEmail;
   final LoadingDialog loadingDialog;
   final AuthStore authStore;
 
-  LoginController(this.loginWithEmail, this.loadingDialog, this.authStore);
+  _LoginControllerBase(this.loginWithEmail, this.loadingDialog, this.authStore);
 
   enterLoginEmail(Credentials credentials) async {
     loadingDialog.show();

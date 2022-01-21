@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_with_email.dart';
+part of 'login_repository_impl.dart';
 
 // **************************************************************************
 // InjectionGenerator
 // **************************************************************************
 
-final $LoginWithEmailUseCaseImpl = BindInject(
-  (i) =>
-      LoginWithEmailUseCaseImpl(i<LoginRepository>(), i<ConnectivityService>()),
-  isSingleton: true,
+final $LoginRepositoryImpl = BindInject(
+  (i) => LoginRepositoryImpl(i<LoginDataSource>(), i<LoginRepository>()),
+  isSingleton: false,
   isLazy: true,
 );

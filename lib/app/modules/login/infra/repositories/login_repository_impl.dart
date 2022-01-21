@@ -6,7 +6,10 @@ import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
 import 'package:clean_login/app/modules/login/domain/repositories/login_repository.dart';
 import 'package:clean_login/app/modules/login/infra/datasource/login_datasource.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+part 'login_repository_impl.g.dart';
 
+@Injectable(singleton: false)
 class LoginRepositoryImpl implements LoginRepository {
   final LoginDataSource datasource;
   final LoginRepository repository;

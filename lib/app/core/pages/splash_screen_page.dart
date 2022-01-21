@@ -16,7 +16,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   late Animation<double> fadeInFadeOut;
 
   splashScreenPage() async {
-    Future.delayed(Duration(seconds: 10))
+    Future.delayed(Duration(seconds: 3))
         .whenComplete(() => Modular.to.pushNamed("/login"));
   }
 
