@@ -12,18 +12,19 @@ part 'login_repository_impl.g.dart';
 @Injectable(singleton: false)
 class LoginRepositoryImpl implements LoginRepository {
   final LoginDataSource datasource;
-  final LoginRepository repository;
 
-  LoginRepositoryImpl(this.datasource, this.repository);
+  LoginRepositoryImpl(this.datasource);
   @override
-  Future<Either<Failure, UserInfoData>> executeLoginEmail(
-      {required Credentials credentials}) async {
+  Future<Either<Failure, UserInfoData>> executeLoginEmail({
+    required Credentials credentials,
+  }) async {
     try {
-      var user = await datasource.executeLoginEmail(credentials: credentials);
+      final user = await datasource.executeLoginEmail(credentials: credentials);
       return Right(user);
     } catch (e) {
       return Left(
-          FailedExecuteLogin(message: FailureMessages.Error_Execute_Login));
+        FailedExecuteLogin(message: FailureMessages.Error_Execute_Login),
+      );
     }
   }
 
@@ -33,7 +34,9 @@ class LoginRepositoryImpl implements LoginRepository {
       await datasource.logout();
       return const Right(unit);
     } catch (e) {
-      return Left(ErrorLogout(message: FailureMessages.Failed_To_Logout));
+      return Left(
+        ErrorLogout(message: FailureMessages.Failed_To_Logout),
+      );
     }
   }
 
@@ -43,8 +46,10 @@ class LoginRepositoryImpl implements LoginRepository {
       var user = await datasource.currentUser();
       return Right(user);
     } catch (e) {
-      return Left(ErrorGetLoggedUser(
-          message: FailureMessages.Failed_To_Recover_User_Logged));
+      return Left(
+        ErrorGetLoggedUser(
+            message: FailureMessages.Failed_To_Recover_User_Logged),
+      );
     }
   }
 }

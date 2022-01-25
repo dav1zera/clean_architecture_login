@@ -7,7 +7,7 @@ part of 'login_repository_impl.dart';
 // **************************************************************************
 
 final $LoginRepositoryImpl = BindInject(
-  (i) => LoginRepositoryImpl(i<LoginDataSource>(), i<LoginRepository>()),
+  (i) => LoginRepositoryImpl(i<LoginDataSource>()),
   isSingleton: false,
   isLazy: true,
 );
