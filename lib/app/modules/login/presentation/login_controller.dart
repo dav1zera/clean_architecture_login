@@ -13,32 +13,32 @@ part 'login_controller.g.dart';
 class LoginController = _LoginControllerBase with _$LoginController;
 
 abstract class _LoginControllerBase with Store {
-  final LoginWithEmailUseCase loginWithEmail;
-  final LoadingDialog loadingDialog;
-  final AuthStore authStore;
+  //final LoginWithEmailUseCase loginWithEmail;
+  //final LoadingDialog loadingDialog;
+  //final AuthStore authStore;
 
-  _LoginControllerBase(this.loginWithEmail, this.loadingDialog, this.authStore);
+  _LoginControllerBase();
 
   enterLoginEmail(Credentials credentials) async {
-    loadingDialog.show();
+    // loadingDialog.show();
     await Future.delayed(
       const Duration(milliseconds: 500),
     );
-    final result = await loginWithEmail(credentials);
-    await loadingDialog.hide();
-    result.fold(
-      (failure) {
-        asuka.showSnackBar(
-          SnackBar(
-            content: Text(failure.message),
-            duration: const Duration(seconds: 2),
-          ),
-        );
-      },
-      (user) {
-        authStore.setUser(credentials);
-        Modular.to.pushNamedAndRemoveUntil('/', (_) => false);
-      },
-    );
+    //final result = await loginWithEmail(credentials);
+    //await loadingDialog.hide();
+    // result.fold(
+    //   (failure) {
+    //     asuka.showSnackBar(
+    //       SnackBar(
+    //         content: Text(failure.message),
+    //         duration: const Duration(seconds: 2),
+    //       ),
+    //     );
+    //   },
+    //   (user) {
+    //     authStore.setUser(credentials);
+    //     Modular.to.pushNamedAndRemoveUntil('/', (_) => false);
+    //   },
+    // );
   }
 }

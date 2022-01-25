@@ -54,9 +54,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             height: 16,
           ),
           CustomButton(
-            text: "Cadastrar",
-            onPressed: () => controller.loginWithEmail,
-          ),
+              text: "Cadastrar",
+              onPressed: () => {} //controller.loginWithEmail,
+              ),
           const UrbanImage(
             image: "assets/images/urban.png",
           )

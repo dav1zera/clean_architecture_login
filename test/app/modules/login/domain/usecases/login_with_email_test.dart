@@ -1,4 +1,4 @@
-import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
+import 'package:clean_login/app/core/connectivity/domain/services/connectivity_service.dart';
 import 'package:clean_login/app/modules/login/domain/entities/user.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';

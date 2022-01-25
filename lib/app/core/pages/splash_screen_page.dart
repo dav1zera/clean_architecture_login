@@ -16,8 +16,9 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   late Animation<double> fadeInFadeOut;
 
   splashScreenPage() async {
-    Future.delayed(Duration(seconds: 3))
-        .whenComplete(() => Modular.to.pushNamed("/login"));
+    Future.delayed(
+      Duration(seconds: 3),
+    ).whenComplete(() => Modular.to.pushNamed("/login"));
   }
 
   void initState() {
@@ -41,7 +42,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 height: 250,
               ),
               Text(
-                "App code",
+                "Bem Vindo",
                 style: GoogleFonts.raleway(
                   fontSize: 35,
                   textStyle: TextStyle(

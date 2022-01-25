@@ -16,6 +16,7 @@ class LoginModule extends Module {
         $LoginController
       ];
   @override
-  List<ModularRoute> get routes =>
-      [ChildRoute("/", child: (_, __) => LoginPage())];
+  List<ModularRoute> get routes => [
+        ChildRoute("/", child: (context, args) => LoginPage()),
+      ];
 }
