@@ -29,13 +29,13 @@ mixin _$AuthStore on _AuthStoreBase, Store {
   final _$userAtom = Atom(name: '_AuthStoreBase.user');
 
   @override
-  LoggedUserInfo get user {
+  UserEntity? get user {
     _$userAtom.reportRead();
     return super.user;
   }
 
   @override
-  set user(LoggedUserInfo value) {
+  set user(UserEntity? value) {
     _$userAtom.reportWrite(value, super.user, () {
       super.user = value;
     });
@@ -45,11 +45,11 @@ mixin _$AuthStore on _AuthStoreBase, Store {
       ActionController(name: '_AuthStoreBase');
 
   @override
-  void setUser(Credentials credentials) {
+  void setUser(UserEntity value) {
     final _$actionInfo = _$_AuthStoreBaseActionController.startAction(
         name: '_AuthStoreBase.setUser');
     try {
-      return super.setUser(credentials);
+      return super.setUser(value);
     } finally {
       _$_AuthStoreBaseActionController.endAction(_$actionInfo);
     }

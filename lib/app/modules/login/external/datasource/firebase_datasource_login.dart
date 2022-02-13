@@ -1,8 +1,8 @@
+import 'package:clean_login/app/commons/domain/infra/user_model.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
 import 'package:clean_login/app/modules/login/infra/datasource/login_datasource.dart';
-import 'package:clean_login/app/modules/login/infra/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 part 'firebase_datasource_login.g.dart';

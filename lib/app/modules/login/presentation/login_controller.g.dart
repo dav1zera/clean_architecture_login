@@ -8,7 +8,7 @@ part of 'login_controller.dart';
 
 final $LoginController = BindInject(
   (i) => LoginController(
-      i<LoginWithEmailUseCase>(), i<LoadingDialog>(), i<AuthStore>()),
+      i<LoginWithEmailUseCase>(), i<AuthStore>(), i<LoginStore>()),
   isSingleton: true,
   isLazy: true,
 );

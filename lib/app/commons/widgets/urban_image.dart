@@ -13,7 +13,7 @@ class UrbanImage extends StatelessWidget {
       offset: Offset(0, MediaQuery.of(context).size.height * -0.12),
       child: Image.asset(
         "assets/images/urban.png",
-        width: 370,
+        width: 390,
         height: 390,
         //alignment: Alignment.topCenter,
       ),

@@ -43,11 +43,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           CustomButton(
             text: "Login",
             onPressed: () {
-              setState(
-                () {
-                  formKey.currentState?.validate();
-                },
-              );
+              setState(() {
+                formKey.currentState?.validate();
+              });
+              controller.enterLoginEmail(context);
             },
           ),
           const SizedBox(
@@ -55,7 +54,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           ),
           CustomButton(
               text: "Cadastrar",
-              onPressed: () => {} //controller.loginWithEmail,
+              onPressed: () => {
+                    Modular.to.pushNamedAndRemoveUntil("/home", (_) => false)
+                  } //controller.loginWithEmail,
               ),
           const UrbanImage(
             image: "assets/images/urban.png",

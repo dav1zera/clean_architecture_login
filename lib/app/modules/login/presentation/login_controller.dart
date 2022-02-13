@@ -1,12 +1,9 @@
-import 'package:clean_login/app/commons/utils/loading_dialog.dart';
 import 'package:clean_login/app/core/stores/auth_store.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/usecases/login_with_email.dart';
-import 'package:asuka/asuka.dart' as asuka;
-import 'package:flutter/material.dart';
+import 'package:clean_login/app/modules/login/presentation/login_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
-
 part 'login_controller.g.dart';
 
 @Injectable()
@@ -14,30 +11,31 @@ class LoginController = _LoginControllerBase with _$LoginController;
 
 abstract class _LoginControllerBase with Store {
   final LoginWithEmailUseCase loginWithEmail;
-  final LoadingDialog loadingDialog;
+
   final AuthStore authStore;
+  final LoginStore store;
 
-  _LoginControllerBase(this.loginWithEmail, this.loadingDialog, this.authStore);
+  _LoginControllerBase(
+    this.loginWithEmail,
+    this.authStore,
+    this.store,
+  );
 
-  enterLoginEmail(Credentials credentials) async {
-    loadingDialog.show();
-    await Future.delayed(
-      const Duration(milliseconds: 500),
+  enterLoginEmail(context) async {
+    final credentials = Credentials(
+      email: store.emailLogin.text,
+      password: store.passwordLogin.text,
     );
     final result = await loginWithEmail(credentials);
-    await loadingDialog.hide();
+
     result.fold(
       (failure) {
-        asuka.showSnackBar(
-          SnackBar(
-            content: Text(failure.message),
-            duration: const Duration(seconds: 2),
-          ),
-        );
+        store.statusDescription = failure.message;
       },
       (user) {
-        authStore.setUser(credentials);
-        Modular.to.pushNamedAndRemoveUntil('/', (_) => false);
+        store.statusDescription = null;
+        authStore.user = user;
+        Modular.to.pushNamedAndRemoveUntil("/home", (_) => false);
       },
     );
   }

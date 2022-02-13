@@ -7,7 +7,7 @@ part of 'get_logged_user.dart';
 // **************************************************************************
 
 final $GetLoggedUserUseCaseImpl = BindInject(
-  (i) => GetLoggedUserUseCaseImpl(i<LoginDataSource>(), i<LoginRepository>()),
+  (i) => GetLoggedUserUseCaseImpl(i<LoginRepository>()),
   isSingleton: false,
   isLazy: true,
 );

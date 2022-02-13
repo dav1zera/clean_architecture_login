@@ -9,4 +9,5 @@ class FailureMessages {
   static String get Error_Get_Logged_User =>
       "Erro ao pegar o usuário logado atual";
   static String get Error_Execute_Login => "Erro ao executar login";
+  static String get Invalid_User_Credentials => "Credenciais Inválidas";
 }

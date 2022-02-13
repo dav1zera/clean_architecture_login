@@ -1,9 +1,9 @@
+import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/entities/logged_user_info.dart';
 import 'package:clean_login/app/modules/login/domain/usecases/get_logged_user.dart';
 import 'package:clean_login/app/modules/login/domain/usecases/logout.dart';
 import 'package:asuka/asuka.dart' as asuka;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -19,28 +19,28 @@ abstract class _AuthStoreBase with Store {
   _AuthStoreBase(this.getLoggedUser, this.logout);
 
   @observable
-  late LoggedUserInfo user;
+  UserEntity? user;
 
   @computed
   bool get isLogged => user != null;
 
   @action
-  void setUser(Credentials credentials) => user;
+  void setUser(UserEntity value) => user = value;
 
-  Future<bool> checkLogin(Credentials credentials) async {
+  Future<bool> checkLogin() async {
     final result = await getLoggedUser();
     return result.fold(
       (l) {
         return false;
       },
-      (user) {
-        setUser(credentials);
+      (resultUserEntity) {
+        user = resultUserEntity;
         return true;
       },
     );
   }
 
-  Future signOut(Credentials credentials) async {
+  Future signOut() async {
     var result = await logout();
     result.fold(
       (l) {
@@ -50,8 +50,8 @@ abstract class _AuthStoreBase with Store {
           ),
         );
       },
-      (r) {
-        setUser(credentials);
+      (_) {
+        user = null;
         Modular.to.pushNamedAndRemoveUntil("/login", (_) => false);
       },
     );

@@ -1,5 +1,5 @@
 import 'package:clean_login/app/core/connectivity/domain/services/connectivity_service.dart';
-import 'package:clean_login/app/modules/login/domain/entities/user.dart';
+import 'package:clean_login/app/modules/login/domain/entities/user_entity.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
 import 'package:clean_login/app/modules/login/domain/repositories/login_repository.dart';
@@ -36,7 +36,7 @@ main() {
     "test Success call usecase",
     () async {
       final user =
-          UserInfoData(uid: "123456", email: "zeca@hotmail.com", name: "Davi");
+          UserEntity(uid: "123456", email: "zeca@hotmail.com", name: "Davi");
 
       when(() => connectivityservice.isOnline()).thenAnswer((_) async => true);
       when(() => repository.executeLoginEmail())

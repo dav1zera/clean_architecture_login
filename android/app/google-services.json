@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "561009885819",
-    "project_id": "clean-architecture-login",
-    "storage_bucket": "clean-architecture-login.appspot.com"
+    "project_number": "362272447178",
+    "project_id": "loginfirebase-60979",
+    "storage_bucket": "loginfirebase-60979.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:561009885819:android:8d4fc19803d9be45ec58de",
+        "mobilesdk_app_id": "1:362272447178:android:08a098a6827c2a99363233",
         "android_client_info": {
           "package_name": "com.example.clean_login"
         }
       },
       "oauth_client": [
         {
-          "client_id": "561009885819-p499a5gl82e9vftcrg9ddgu92sg5bsf5.apps.googleusercontent.com",
+          "client_id": "362272447178-dbagb1s4sdinu7vhp56al0t05d031626.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.clean_login",
@@ -22,20 +22,57 @@
           }
         },
         {
-          "client_id": "561009885819-05opfroossmg25af70evks8mpcr4ii77.apps.googleusercontent.com",
+          "client_id": "362272447178-kpvmdtqm0p1m55j03c8f0et8c8dhqr3i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCT6IaJS6e00zLIFtTG4eo8R_KZG2sLrwA"
+          "current_key": "AIzaSyB_nB_FPODIwHrROqxt5PdEfd_0XKKImzM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "561009885819-05opfroossmg25af70evks8mpcr4ii77.apps.googleusercontent.com",
+              "client_id": "362272447178-kpvmdtqm0p1m55j03c8f0et8c8dhqr3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362272447178:android:d96836381059a199363233",
+        "android_client_info": {
+          "package_name": "com.example.desafio_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362272447178-t1a3e0dn41asgi8doh1qjs3ju823rbe6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.desafio_1",
+            "certificate_hash": "9c87e66a1725b12b30f159e64a08457e43efcb91"
+          }
+        },
+        {
+          "client_id": "362272447178-kpvmdtqm0p1m55j03c8f0et8c8dhqr3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_nB_FPODIwHrROqxt5PdEfd_0XKKImzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362272447178-kpvmdtqm0p1m55j03c8f0et8c8dhqr3i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

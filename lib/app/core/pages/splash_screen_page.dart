@@ -1,6 +1,8 @@
+import 'package:clean_login/app/core/pages/splash_screen_controller.dart';
 import 'package:clean_login/app/modules/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -10,20 +12,17 @@ class SplashScreenPage extends StatefulWidget {
   _SplashScreenPageState createState() => _SplashScreenPageState();
 }
 
-class _SplashScreenPageState extends State<SplashScreenPage>
+class _SplashScreenPageState
+    extends ModularState<SplashScreenPage, SplashScreenController>
     with TickerProviderStateMixin {
   late AnimationController animation;
   late Animation<double> fadeInFadeOut;
 
-  splashScreenPage() async {
-    Future.delayed(
-      Duration(seconds: 3),
-    ).whenComplete(() => Modular.to.pushNamed("/login"));
-  }
-
+  @override
   void initState() {
     super.initState();
-    splashScreenPage();
+    controller.init();
+
     animationController();
   }
 

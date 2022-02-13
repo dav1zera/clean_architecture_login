@@ -1,5 +1,6 @@
+import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
+import 'package:clean_login/app/modules/home/infra/mappers/user_mapper.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
-import 'package:clean_login/app/modules/login/domain/entities/user.dart';
 import 'package:clean_login/app/core/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
@@ -15,12 +16,14 @@ class LoginRepositoryImpl implements LoginRepository {
 
   LoginRepositoryImpl(this.datasource);
   @override
-  Future<Either<Failure, UserInfoData>> executeLoginEmail({
+  Future<Either<Failure, UserEntity>> executeLoginEmail({
     required Credentials credentials,
   }) async {
     try {
-      final user = await datasource.executeLoginEmail(credentials: credentials);
-      return Right(user);
+      final userModel =
+          await datasource.executeLoginEmail(credentials: credentials);
+      final userEntity = UserMapper.toEntity(userModel);
+      return Right(userEntity);
     } catch (e) {
       return Left(
         FailedExecuteLogin(message: FailureMessages.Error_Execute_Login),
@@ -41,10 +44,11 @@ class LoginRepositoryImpl implements LoginRepository {
   }
 
   @override
-  Future<Either<Failure, UserInfoData>> currentUser() async {
+  Future<Either<Failure, UserEntity>> currentUser() async {
     try {
-      var user = await datasource.currentUser();
-      return Right(user);
+      final userModel = await datasource.currentUser();
+      final userEntity = UserMapper.toEntity(userModel);
+      return Right(userEntity);
     } catch (e) {
       return Left(
         ErrorGetLoggedUser(

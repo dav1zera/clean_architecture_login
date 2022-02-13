@@ -1,16 +1,13 @@
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
-import 'package:clean_login/app/modules/login/presentation/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CampText extends StatelessWidget {
   final ValueChanged<String>? onChanged;
-
   final List<TextInputFormatter>? inputFormatters;
   final GestureTapCallback? onTap;
-  //final Credentials credentials;
-
+  final TextEditingController? controller;
   final String text;
   final String? image;
   final bool obscureText;
@@ -27,6 +24,8 @@ class CampText extends StatelessWidget {
     this.width,
     this.image,
     this.obscureText = false,
+    this.controller,
+
     //required this.credentials,
   }) : super(key: key);
 
@@ -51,6 +50,7 @@ class CampText extends StatelessWidget {
               onTap: onTap,
               inputFormatters: inputFormatters,
               onChanged: onChanged,
+              controller: controller,
               obscureText: obscureText,
               decoration: InputDecoration(
                 focusedBorder: const UnderlineInputBorder(
