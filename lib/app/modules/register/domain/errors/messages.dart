@@ -1,5 +1,7 @@
 class FailureMessages {
   // ignore: non_constant_identifier_names
+  static String get Offline_Connection => "Você está offline";
+  // ignore: non_constant_identifier_names
   static String get Invalid_Email => "Email inválido";
   // ignore: non_constant_identifier_names
   static String get Invalid_Name => "Nome inválido";
@@ -17,4 +19,7 @@ class FailureMessages {
 
   // ignore: non_constant_identifier_names
   static String get Get_Adress => "Error ao pegar o endereço";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_User_Credentials => "Credenciais Inválidas";
 }

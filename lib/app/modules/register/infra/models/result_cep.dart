@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class ResultCep {
+class ResultCepModel {
   final String cep;
   final String localidade;
   final String complemento;
@@ -8,7 +8,7 @@ class ResultCep {
   final String uf;
   final String logradouro;
 
-  ResultCep({
+  ResultCepModel({
     required this.cep,
     required this.localidade,
     required this.complemento,
@@ -17,9 +17,10 @@ class ResultCep {
     required this.logradouro,
   });
 
-  factory ResultCep.fromJson(String str) => ResultCep.fromMap(json.decode(str));
+  factory ResultCepModel.fromJson(String str) =>
+      ResultCepModel.fromMap(json.decode(str));
 
-  factory ResultCep.fromMap(Map<String, dynamic> json) => ResultCep(
+  factory ResultCepModel.fromMap(Map<String, dynamic> json) => ResultCepModel(
         cep: json["cep"],
         logradouro: json["logradouro"] ?? "",
         complemento: json["complemento"] ?? "",

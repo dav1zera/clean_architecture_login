@@ -19,4 +19,10 @@ class FailureMessages {
   static String get Error_Execute_Login => "Erro ao executar login";
   // ignore: non_constant_identifier_names
   static String get Invalid_User_Credentials => "Credenciais Inválidas";
+
+  // ignore: non_constant_identifier_names
+  static String get Error_Create_User => "Error ao criar usuário";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_Adress => "Endereço inválido";
 }

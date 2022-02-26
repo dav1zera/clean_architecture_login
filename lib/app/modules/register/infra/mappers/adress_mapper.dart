@@ -1,10 +1,8 @@
-import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
-import 'package:clean_login/app/commons/domain/infra/user_model.dart';
 import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
-import 'package:clean_login/app/modules/register/domain/entities/result_cep.dart';
+import 'package:clean_login/app/modules/register/infra/models/result_cep.dart';
 
 class AdressMapper {
-  static AdressEntity toEntity(ResultCep model) {
+  static AdressEntity toEntity(ResultCepModel model) {
     return AdressEntity(
       cep: model.cep,
       rua: model.logradouro,
@@ -15,8 +13,8 @@ class AdressMapper {
     );
   }
 
-  static ResultCep toModel(AdressEntity entity) {
-    return ResultCep(
+  static ResultCepModel toModel(AdressEntity entity) {
+    return ResultCepModel(
       cep: entity.cep,
       localidade: entity.cidade,
       complemento: entity.complemento,

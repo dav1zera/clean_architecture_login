@@ -1,19 +1,17 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-abstract class RegisterStore with Store {
-  bool isValidEmailRegister = false;
-  bool isValidPasswordRegister = false;
-  bool isValidNameRegister = false;
+abstract class AdressStore with Store {
+  final ValueNotifier<bool> isLoading = ValueNotifier(false);
 
-  TextEditingController emailRegister = TextEditingController();
-  TextEditingController passowordRegister = TextEditingController();
-  TextEditingController nameRegister = TextEditingController();
-  String? userId;
+  bool hasError = false;
   TextEditingController ruaTextController = TextEditingController();
   TextEditingController cepTextController = TextEditingController();
   TextEditingController bairroTextController = TextEditingController();
   TextEditingController cidadeTextController = TextEditingController();
   TextEditingController numTextController = TextEditingController();
   TextEditingController compleTextController = TextEditingController();
+
+  @observable
+  String? statusDescription;
 }

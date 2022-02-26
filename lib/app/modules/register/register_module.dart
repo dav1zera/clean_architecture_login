@@ -1,4 +1,5 @@
 import 'package:clean_login/app/modules/login/presentation/login_page.dart';
+import 'package:clean_login/app/modules/register/presentation/pages/adress/adress_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class RegisterModule extends Module {
@@ -16,6 +17,12 @@ class RegisterModule extends Module {
         ChildRoute(
           "/",
           child: (context, args) => const LoginPage(),
+        ),
+        ChildRoute(
+          "/adress",
+          child: (context, args) => AdressPage(
+            uid: args.data,
+          ),
         ),
       ];
 }

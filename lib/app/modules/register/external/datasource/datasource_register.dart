@@ -1,6 +1,6 @@
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
-import 'package:clean_login/app/modules/register/domain/entities/result_cep.dart';
+import 'package:clean_login/app/modules/register/infra/models/result_cep.dart';
 import 'package:clean_login/app/modules/register/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/register/domain/errors/messages.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -10,11 +10,11 @@ import 'package:http/http.dart';
 
 import '../../infra/datasource/register_datasource.dart';
 
-class FireBaseDataSourceRegisterImpl implements RegisterDataSource {
+class DataSourceRegisterImpl implements RegisterDataSource {
   final FirebaseAuth auth;
   final FirebaseFirestore firestore;
 
-  FireBaseDataSourceRegisterImpl({
+  DataSourceRegisterImpl({
     required this.auth,
     required this.firestore,
   });
@@ -35,18 +35,21 @@ class FireBaseDataSourceRegisterImpl implements RegisterDataSource {
   }
 
   @override
-  Future<ResultCep> getAdress(String cep) async {
+  Future<ResultCepModel> getRemoteAdress({required String cep}) async {
     try {
-      Response result =
-          await http.get(Uri.parse("https://viacep.com.br/ws/$cep/json/"));
-      return ResultCep.fromJson(result.body);
+      Response result = await http.get(
+        Uri.parse(
+          "https://viacep.com.br/ws/$cep/json/",
+        ),
+      );
+      return ResultCepModel.fromJson(result.body);
     } catch (e) {
       throw Exception();
     }
   }
 
   @override
-  Future<bool> registerAdressFirestore(AdressEntity adress, String uid) async {
+  Future<bool> registerAdress(AdressEntity adress, String uid) async {
     try {
       await firestore.collection("users").doc(uid).set({
         "adress": adress.toMap(),

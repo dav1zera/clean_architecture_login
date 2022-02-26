@@ -1,5 +1,5 @@
 import 'package:clean_login/app/commons/widgets/text_form_field.dart';
-import 'package:clean_login/app/modules/register/presentation/register_controller.dart';
+import 'package:clean_login/app/modules/register/presentation/pages/user/register_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:clean_login/app/commons/widgets/container_box.dart';
