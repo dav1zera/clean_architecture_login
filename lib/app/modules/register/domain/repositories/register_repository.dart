@@ -9,5 +9,7 @@ abstract class RegisterRepository {
   Future<Either<Failure, String>> createUserEmail({
     required Credentials credentials,
   });
-  Future<Either<Failure, AdressEntity>> getAdress({required String cep});
+  Future<Either<Failure, AdressEntity>> getAdress({
+    required String cep,
+  });
 }
