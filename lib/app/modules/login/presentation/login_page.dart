@@ -55,7 +55,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           CustomButton(
               text: "Cadastrar",
               onPressed: () => {
-                    Modular.to.pushNamedAndRemoveUntil("/home", (_) => false)
+                    Modular.to
+                        .pushNamedAndRemoveUntil("/register", (_) => false)
                   } //controller.loginWithEmail,
               ),
           const UrbanImage(

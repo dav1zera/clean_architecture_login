@@ -24,5 +24,9 @@ class FailureMessages {
   static String get Error_Create_User => "Error ao criar usuário";
 
   // ignore: non_constant_identifier_names
-  static String get Invalid_Adress => "Endereço inválido";
+  static String get Failed_Autocomplete_Adress =>
+      "Falha ao buscar dados do cep";
+
+  // ignore: non_constant_identifier_names
+  static String get Failed_Register_Adress => "Falha ao regitrar o endereço";
 }

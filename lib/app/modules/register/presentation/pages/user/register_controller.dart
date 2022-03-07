@@ -4,13 +4,17 @@ import 'package:clean_login/app/modules/register/domain/usecases/create_user_ema
 import 'package:clean_login/app/modules/register/presentation/pages/user/register_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+part 'register_controller.g.dart';
 
-abstract class RegisterController with Store {
+@Injectable()
+class RegisterController = _RegisterControllerBase with _$RegisterController;
+
+abstract class _RegisterControllerBase with Store {
   final CreateUserEmailUseCase createUserEmailUseCase;
   final AuthStore authStore;
   final RegisterStore store;
 
-  RegisterController(
+  _RegisterControllerBase(
     this.authStore,
     this.store,
     this.createUserEmailUseCase,
@@ -24,7 +28,9 @@ abstract class RegisterController with Store {
     );
     final result = await createUserEmailUseCase(credentials);
     result.fold(
-      (failure) => {store.statusDescription = failure.message},
+      (failure) => {
+        store.statusDescription = failure.message,
+      },
       (uid) {
         store.statusDescription = null;
 

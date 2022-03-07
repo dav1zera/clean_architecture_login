@@ -44,3 +44,10 @@ class ErrorGetAdress extends Failure {
 
   ErrorGetAdress({required this.message});
 }
+
+class ErrorRegisterAdress extends Failure {
+  @override
+  final String message;
+
+  ErrorRegisterAdress({required this.message});
+}

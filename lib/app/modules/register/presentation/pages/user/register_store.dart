@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+part 'register_store.g.dart';
 
-abstract class RegisterStore with Store {
+@Injectable()
+class RegisterStore = _RegisterStoreBase with _$RegisterStore;
+
+abstract class _RegisterStoreBase with Store {
   bool isValidEmailRegister = false;
   bool isValidPasswordRegister = false;
   bool isValidNameRegister = false;

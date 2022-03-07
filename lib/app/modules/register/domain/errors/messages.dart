@@ -1,4 +1,4 @@
-class FailureMessages {
+class FailureRegisterMessages {
   // ignore: non_constant_identifier_names
   static String get Offline_Connection => "Você está offline";
   // ignore: non_constant_identifier_names
@@ -22,4 +22,22 @@ class FailureMessages {
 
   // ignore: non_constant_identifier_names
   static String get Invalid_User_Credentials => "Credenciais Inválidas";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_Cep => "Cep inválido";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_District => "Bairro inválido";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_City => "Cidade inválida";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_Complement => "Complemento inválido";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_Number => "Número inválido";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_Street => "Rua inválida";
 }

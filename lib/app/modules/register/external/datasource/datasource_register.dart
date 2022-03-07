@@ -5,11 +5,14 @@ import 'package:clean_login/app/modules/register/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/register/domain/errors/messages.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 import '../../infra/datasource/register_datasource.dart';
+part 'datasource_register.g.dart';
 
+@Injectable(singleton: false)
 class DataSourceRegisterImpl implements RegisterDataSource {
   final FirebaseAuth auth;
   final FirebaseFirestore firestore;
@@ -27,7 +30,7 @@ class DataSourceRegisterImpl implements RegisterDataSource {
         email: credentials.email, password: credentials.password);
 
     if (userCredential.user == null) {
-      throw ErrorRegister(message: FailureMessages.Get_Register_User);
+      throw ErrorRegister(message: FailureRegisterMessages.Get_Register_User);
     }
 
     await userCredential.user!.updateDisplayName(credentials.name);

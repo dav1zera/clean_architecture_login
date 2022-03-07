@@ -5,7 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-//flutter pub run build_runner build
+//flutter pub run build_runner build => injeções de binds
+
 ControllerSession sessionStore = ControllerSession();
 
 void main() async {
