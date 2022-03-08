@@ -17,6 +17,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState
     extends ModularState<RegisterPage, RegisterController> {
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,3 @@
-import 'package:clean_login/app/core/stores/auth_store.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/register/domain/usecases/create_user_email.dart';
 import 'package:clean_login/app/modules/register/presentation/pages/user/register_store.dart';
@@ -11,11 +10,10 @@ class RegisterController = _RegisterControllerBase with _$RegisterController;
 
 abstract class _RegisterControllerBase with Store {
   final CreateUserEmailUseCase createUserEmailUseCase;
-  final AuthStore authStore;
+
   final RegisterStore store;
 
   _RegisterControllerBase(
-    this.authStore,
     this.store,
     this.createUserEmailUseCase,
   );

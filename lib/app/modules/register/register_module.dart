@@ -20,9 +20,7 @@ class RegisterModule extends Module {
         ),
         ChildRoute(
           "/adress",
-          child: (context, args) => AdressPage(
-            uid: args.data,
-          ),
+          child: (context, args) => AdressPage(uid: args.data),
         ),
       ];
 }

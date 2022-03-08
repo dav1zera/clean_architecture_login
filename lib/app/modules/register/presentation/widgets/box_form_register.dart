@@ -18,27 +18,30 @@ class BoxFormRegister extends StatelessWidget {
     return ContainerBox(
       height: 82.0,
       formKey: formKey,
-      children: const [
-        SizedBox(
+      children: [
+        const SizedBox(
           height: 5,
         ),
         CampText(
           text: "Nome",
           image: "assets/images/name.png",
+          controller: controller.store.nameRegister,
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         CampText(
           text: "Email",
           image: "assets/images/mail.png",
+          controller: controller.store.emailRegister,
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         CampText(
           text: "Senha",
           image: "assets/images/lock.png",
+          controller: controller.store.passowordRegister,
           obscureText: true,
         )
       ],
