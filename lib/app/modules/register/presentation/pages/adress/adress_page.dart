@@ -24,6 +24,12 @@ class _AdressPageState extends ModularState<AdressPage, AdressController> {
   final formKey = GlobalKey<FormState>();
 
   @override
+  void initState() {
+    controller.uid = widget.uid;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF539FCB),

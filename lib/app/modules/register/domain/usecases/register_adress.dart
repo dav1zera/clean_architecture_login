@@ -26,7 +26,7 @@ class RegisterAdressUseCaseImpl implements RegisterAdressUseCase {
     required AdressEntity adressEntity,
     required String uid,
   }) async {
-    if (adressEntity.cep.isNotEmpty) {
+    if (adressEntity.cep.isEmpty) {
       return Left(
         ErrorAdress(
           message: FailureRegisterMessages.Invalid_Cep,
@@ -34,7 +34,7 @@ class RegisterAdressUseCaseImpl implements RegisterAdressUseCase {
       );
     }
 
-    if (adressEntity.bairro.isNotEmpty) {
+    if (adressEntity.bairro.isEmpty) {
       return Left(
         ErrorAdress(
           message: FailureRegisterMessages.Invalid_District,
@@ -42,7 +42,7 @@ class RegisterAdressUseCaseImpl implements RegisterAdressUseCase {
       );
     }
 
-    if (adressEntity.cidade.isNotEmpty) {
+    if (adressEntity.cidade.isEmpty) {
       return Left(
         ErrorAdress(
           message: FailureRegisterMessages.Invalid_City,
@@ -50,7 +50,7 @@ class RegisterAdressUseCaseImpl implements RegisterAdressUseCase {
       );
     }
 
-    if (adressEntity.complemento.isNotEmpty) {
+    if (adressEntity.complemento.isEmpty) {
       return Left(
         ErrorAdress(
           message: FailureRegisterMessages.Invalid_Complement,
@@ -58,7 +58,7 @@ class RegisterAdressUseCaseImpl implements RegisterAdressUseCase {
       );
     }
 
-    if (adressEntity.numero.isNotEmpty) {
+    if (adressEntity.numero.isEmpty) {
       return Left(
         ErrorAdress(
           message: FailureRegisterMessages.Invalid_Number,
@@ -66,7 +66,7 @@ class RegisterAdressUseCaseImpl implements RegisterAdressUseCase {
       );
     }
 
-    if (adressEntity.rua.isNotEmpty) {
+    if (adressEntity.rua.isEmpty) {
       return Left(
         ErrorAdress(
           message: FailureRegisterMessages.Invalid_Street,

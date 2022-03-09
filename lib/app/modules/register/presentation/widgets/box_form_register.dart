@@ -16,7 +16,7 @@ class BoxFormRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerBox(
-      height: 82.0,
+      height: 123.0,
       formKey: formKey,
       children: [
         const SizedBox(

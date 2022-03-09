@@ -12,6 +12,6 @@ class Credentials {
       RegExp(r'(?:\d+[a-z]|[a-z]+\d)[a-z\d]*').hasMatch(password);
   bool get isNameValid =>
       name!.isNotEmpty &&
-      name!.length <= 2 &&
+      name!.length >= 2 &&
       RegExp('[a-zA-Z]').hasMatch(name!);
 }

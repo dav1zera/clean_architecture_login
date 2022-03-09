@@ -31,7 +31,7 @@ class CreateUserEmailUseCaseImpl implements CreateUserEmailUseCase {
         !credentials.isNameValid) {
       return Left(
         ErrorRegister(
-          message: FailureMessages.Invalid_User_Credentials,
+          message: FailureMessages.Invalid_Data_User,
         ),
       );
     }

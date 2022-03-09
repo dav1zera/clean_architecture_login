@@ -37,12 +37,14 @@ class _RegisterPageState
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20.0),
-            child: Text("Cadastro",
-                style: GoogleFonts.neuton(
-                    fontSize: 30,
-                    fontStyle: FontStyle.normal,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold)),
+            child: Text(
+              "Cadastro",
+              style: GoogleFonts.neuton(
+                  fontSize: 30,
+                  fontStyle: FontStyle.normal,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           const SizedBox(
             height: 1,
@@ -60,11 +62,11 @@ class _RegisterPageState
           CustomButton(
             text: "Próximo",
             onPressed: () {
-              setState(() {
-                formKey.currentState?.validate();
-              });
               controller.onTapRegister(context);
             },
+          ),
+          const SizedBox(
+            height: 30,
           ),
           const UrbanImage(
             image: "assets/images/urban.png",

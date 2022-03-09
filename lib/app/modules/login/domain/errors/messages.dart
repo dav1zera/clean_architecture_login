@@ -29,4 +29,7 @@ class FailureMessages {
 
   // ignore: non_constant_identifier_names
   static String get Failed_Register_Adress => "Falha ao regitrar o endereço";
+
+  // ignore: non_constant_identifier_names
+  static String get Invalid_Data_User => "Dados inválidos";
 }

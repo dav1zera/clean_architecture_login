@@ -32,8 +32,8 @@ abstract class _RegisterControllerBase with Store {
       (uid) {
         store.statusDescription = null;
 
-        Modular.to
-            .pushNamedAndRemoveUntil("/adress", (_) => false, arguments: uid);
+        Modular.to.pushNamedAndRemoveUntil("register/adress", (_) => false,
+            arguments: uid);
       },
     );
   }

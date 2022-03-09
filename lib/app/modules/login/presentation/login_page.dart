@@ -59,6 +59,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                         .pushNamedAndRemoveUntil("/register", (_) => false)
                   } //controller.loginWithEmail,
               ),
+          const SizedBox(
+            height: 11,
+          ),
           const UrbanImage(
             image: "assets/images/urban.png",
           )

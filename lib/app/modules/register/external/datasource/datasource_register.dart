@@ -30,7 +30,9 @@ class DataSourceRegisterImpl implements RegisterDataSource {
         email: credentials.email, password: credentials.password);
 
     if (userCredential.user == null) {
-      throw ErrorRegister(message: FailureRegisterMessages.Get_Register_User);
+      throw ErrorRegister(
+        message: FailureRegisterMessages.Get_Register_User,
+      );
     }
 
     await userCredential.user!.updateDisplayName(credentials.name);
