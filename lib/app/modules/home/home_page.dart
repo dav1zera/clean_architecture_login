@@ -18,12 +18,15 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF539FCB),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           controller.onTapLogout();
         },
-        child: const Icon(Icons.exit_to_app),
+        child: const Icon(
+          Icons.exit_to_app,
+          color: Colors.white,
+        ),
       ),
     );
   }

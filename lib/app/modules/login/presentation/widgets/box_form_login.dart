@@ -17,45 +17,47 @@ class BoxFormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      return ContainerBox(
-        height: 82.0,
-        formKey: formKey,
-        children: [
-          const SizedBox(
-            height: 5,
-          ),
-          CampText(
-            text: "E-mail",
-            image: "assets/images/man.png",
-            controller: controller.store.emailLogin,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          CampText(
-            text: "Senha",
-            image: "assets/images/lock.png",
-            obscureText: true,
-            controller: controller.store.passwordLogin,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 3),
-            child: Align(
-              alignment: const Alignment(1, 0),
-              child: Text(
-                controller.store.statusDescription ?? "",
-                style: GoogleFonts.ovo(
-                  fontSize: 10,
-                  textStyle: const TextStyle(
-                    color: Color(0xFFB30000),
+    return Observer(
+      builder: (_) {
+        return ContainerBox(
+          height: 82.0,
+          formKey: formKey,
+          children: [
+            const SizedBox(
+              height: 5,
+            ),
+            CampText(
+              text: "E-mail",
+              image: "assets/images/man.png",
+              controller: controller.store.emailLogin,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            CampText(
+              text: "Senha",
+              image: "assets/images/lock.png",
+              obscureText: true,
+              controller: controller.store.passwordLogin,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Align(
+                alignment: const Alignment(1, 0),
+                child: Text(
+                  controller.store.statusDescription ?? "",
+                  style: GoogleFonts.ovo(
+                    fontSize: 10,
+                    textStyle: const TextStyle(
+                      color: Color(0xFFB30000),
+                    ),
                   ),
                 ),
               ),
-            ),
-          )
-        ],
-      );
-    });
+            )
+          ],
+        );
+      },
+    );
   }
 }
