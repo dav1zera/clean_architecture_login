@@ -7,11 +7,11 @@ class UserNotFound extends Failure {
   UserNotFound({required this.message});
 }
 
-class ErrorGetLoggedUser extends Failure {
+class ErrorGetCurrentUser extends Failure {
   @override
   final String message;
 
-  ErrorGetLoggedUser({required this.message});
+  ErrorGetCurrentUser({required this.message});
 }
 
 class ErrorLogout extends Failure {

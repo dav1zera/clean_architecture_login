@@ -1,5 +1,4 @@
 import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
-import 'package:clean_login/app/modules/home/infra/mappers/user_mapper.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/core/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
@@ -8,6 +7,8 @@ import 'package:clean_login/app/modules/login/domain/repositories/login_reposito
 import 'package:clean_login/app/modules/login/infra/datasource/login_datasource.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../../../commons/domain/mappers/user_mapper.dart';
 part 'login_repository_impl.g.dart';
 
 @Injectable(singleton: false)

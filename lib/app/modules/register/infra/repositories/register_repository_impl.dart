@@ -25,7 +25,7 @@ class RegisterRepositoryImpl implements RegisterRepository {
         cep: cep,
       );
 
-      final userEntity = AdressMapper.toEntity(resultCep);
+      final userEntity = AdressMapper.toEntityByCep(resultCep);
       return Right(userEntity);
     } catch (e) {
       return Left(
@@ -65,7 +65,8 @@ class RegisterRepositoryImpl implements RegisterRepository {
     required String uid,
   }) async {
     try {
-      await dataSource.registerAdress(adressEntity, uid);
+      final adressModel = AdressMapper.toModel(adressEntity);
+      await dataSource.registerAdress(adressModel, uid);
       return const Right(unit);
     } catch (a) {
       return Left(

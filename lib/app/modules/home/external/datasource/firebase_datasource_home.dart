@@ -1,4 +1,4 @@
-import 'package:clean_login/app/commons/domain/infra/user_model.dart';
+import 'package:clean_login/app/commons/domain/infra/adress_model.dart';
 import 'package:clean_login/app/modules/home/infra/datasource/home_datasource.dart';
 import 'package:clean_login/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,14 +17,14 @@ class FirebaseDataSourceHomeImpl implements HomeDataSource {
   });
 
   @override
-  Future<UserModel> getHomeUserData() async {
+  Future<AdressModel> getAdressUserData() async {
     DocumentSnapshot<Map<String, dynamic>> user = await firestore
         .collection("users")
         .doc(sessionStore.userInfoData!.uid)
         .get();
 
-    final home = UserModel.fromMap(user.data()!["users"]);
-    return home;
+    final adress = AdressModel.fromMap(user.data()!["adress"]);
+    return adress;
   }
 
   @override

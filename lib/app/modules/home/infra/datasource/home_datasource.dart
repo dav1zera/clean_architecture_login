@@ -1,6 +1,6 @@
-import 'package:clean_login/app/commons/domain/infra/user_model.dart';
+import 'package:clean_login/app/commons/domain/infra/adress_model.dart';
 
 abstract class HomeDataSource {
-  Future<UserModel> getHomeUserData();
+  Future<AdressModel> getAdressUserData();
   Future<void> logout();
 }

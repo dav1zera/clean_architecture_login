@@ -1,3 +1,4 @@
+import 'package:clean_login/app/commons/domain/infra/adress_model.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
 import 'package:clean_login/app/modules/register/infra/models/result_cep.dart';
@@ -54,7 +55,7 @@ class DataSourceRegisterImpl implements RegisterDataSource {
   }
 
   @override
-  Future<bool> registerAdress(AdressEntity adress, String uid) async {
+  Future<bool> registerAdress(AdressModel adress, String uid) async {
     try {
       await firestore.collection("users").doc(uid).set({
         "adress": adress.toMap(),

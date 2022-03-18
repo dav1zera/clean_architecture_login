@@ -2,7 +2,6 @@ import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
 import 'package:clean_login/app/modules/login/domain/usecases/get_logged_user.dart';
 import 'package:clean_login/app/modules/login/domain/usecases/logout.dart';
 import 'package:asuka/asuka.dart' as asuka;
-import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';

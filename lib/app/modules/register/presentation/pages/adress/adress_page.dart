@@ -38,7 +38,7 @@ class _AdressPageState extends ModularState<AdressPage, AdressController> {
         builder: (context, bool isloading, child) {
           if (isloading == true) {
             return const Center(
-                child: CircularProgressIndicator(color: Colors.red));
+                child: CircularProgressIndicator(color: Colors.white));
           }
 
           return ListView(
