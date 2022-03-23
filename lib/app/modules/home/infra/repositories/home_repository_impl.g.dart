@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'firebase_datasource_home.dart';
+part of 'home_repository_impl.dart';
 
 // **************************************************************************
 // InjectionGenerator
 // **************************************************************************
 
-final $FirebaseDataSourceHomeImpl = BindInject(
-  (i) => FirebaseDataSourceHomeImpl(
-      auth: i<FirebaseAuth>(), firestore: i<FirebaseFirestore>()),
+final $HomeRepositoryImpl = BindInject(
+  (i) => HomeRepositoryImpl(i<HomeDataSource>()),
   isSingleton: false,
   isLazy: true,
 );

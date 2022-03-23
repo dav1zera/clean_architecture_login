@@ -1,62 +1,90 @@
 import 'package:clean_login/app/commons/widgets/container_box.dart';
 import 'package:clean_login/app/modules/home/home_controller.dart';
-import 'package:clean_login/main.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BoxFormHome extends StatefulWidget {
-  final GlobalKey<FormState> formKey;
+class BoxFormWelcome extends StatefulWidget {
   final HomeController controller;
 
-  const BoxFormHome({
+  BoxFormWelcome({
     Key? key,
-    required this.formKey,
     required this.controller,
   }) : super(key: key);
 
   @override
-  State<BoxFormHome> createState() => _BoxFormHomeState();
+  State<BoxFormWelcome> createState() => _BoxFormWelcomeState();
 }
 
-class _BoxFormHomeState extends State<BoxFormHome> {
+class _BoxFormWelcomeState extends State<BoxFormWelcome> {
   @override
   Widget build(BuildContext context) {
-    return ContainerBox(
-      formKey: widget.formKey,
-      height: 200.0,
-      children: [
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          "Seu ID: ${sessionStore.userInfoData!.uid}",
-          style: GoogleFonts.neuton(
-            fontSize: 15,
-            fontStyle: FontStyle.normal,
+    return Observer(builder: (_) {
+      return ContainerBox(
+        height: 200.0,
+        children: [
+          SizedBox(
+            height: 5,
           ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          "Seu Nome: ${sessionStore.userInfoData!.name}",
-          style: GoogleFonts.neuton(
-            fontSize: 15,
-            fontStyle: FontStyle.normal,
+          Text(
+            "Seu ID: ${widget.controller.authStore.user?.uid}",
+            style: GoogleFonts.neuton(
+              fontSize: 15,
+              fontStyle: FontStyle.normal,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          "Seu Email: ${sessionStore.userInfoData!.email}",
-          style: GoogleFonts.neuton(
-            fontSize: 15,
-            fontStyle: FontStyle.normal,
+          SizedBox(
+            height: 10,
           ),
-        ),
-      ],
-    );
+          Text(
+            "Seu Nome: ${widget.controller.authStore.user?.name}",
+            style: GoogleFonts.neuton(
+              fontSize: 15,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Seu Email: ${widget.controller.authStore.user?.email}",
+            style: GoogleFonts.neuton(
+              fontSize: 15,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Sua cidade: ${widget.controller.store.adress?.cidade} ",
+            style: GoogleFonts.neuton(
+              fontSize: 15,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Seu cep: ${widget.controller.store.adress?.cep} ",
+            style: GoogleFonts.neuton(
+              fontSize: 15,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Sua rua: ${widget.controller.store.adress?.rua} ",
+            style: GoogleFonts.neuton(
+              fontSize: 15,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+        ],
+      );
+    });
   }
 }

@@ -8,14 +8,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 //flutter pub run build_runner build => injeções de binds
 //Main ponto de partida
 
-/*
-
-ControllerSession => pega a sessão do usuário logado, através do userInfoData
-
-*/
-
-ControllerSession sessionStore = ControllerSession();
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

@@ -14,6 +14,17 @@ class AdressMapper {
     );
   }
 
+  static ResultCepModel toModelByCep(AdressEntity entity) {
+    return ResultCepModel(
+      cep: entity.cep,
+      localidade: entity.cidade,
+      complemento: entity.complemento,
+      bairro: entity.bairro,
+      uf: entity.numero,
+      logradouro: entity.rua,
+    );
+  }
+
   static AdressModel toModel(AdressEntity entity) {
     return AdressModel(
       cep: entity.cep,
@@ -32,18 +43,7 @@ class AdressMapper {
       bairro: model.bairro,
       complemento: model.complemento,
       cidade: model.cidade,
-      numero: "",
-    );
-  }
-
-  static ResultCepModel toModelByCep(AdressEntity entity) {
-    return ResultCepModel(
-      cep: entity.cep,
-      localidade: entity.cidade,
-      complemento: entity.complemento,
-      bairro: entity.bairro,
-      uf: entity.numero,
-      logradouro: entity.rua,
+      numero: model.numero,
     );
   }
 }

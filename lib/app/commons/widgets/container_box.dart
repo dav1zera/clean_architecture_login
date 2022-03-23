@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 
 class ContainerBox extends StatelessWidget {
   final List<Widget> children;
-  final GlobalKey<FormState> formKey;
+  final GlobalKey<FormState>? formKey;
   final double height;
 
   const ContainerBox(
-      {Key? key,
-      required this.children,
-      required this.formKey,
-      required this.height})
+      {Key? key, required this.children, this.formKey, required this.height})
       : super(key: key);
 
   @override

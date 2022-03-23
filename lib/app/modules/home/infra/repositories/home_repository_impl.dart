@@ -7,7 +7,10 @@ import 'package:clean_login/app/modules/home/infra/datasource/home_datasource.da
 import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
 import 'package:clean_login/app/modules/register/infra/mappers/adress_mapper.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+part 'home_repository_impl.g.dart';
 
+@Injectable(singleton: false)
 class HomeRepositoryImpl implements HomeRepository {
   final HomeDataSource dataSource;
 

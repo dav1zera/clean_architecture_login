@@ -1,13 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_store.dart';
+part of 'home_controller.dart';
 
 // **************************************************************************
 // InjectionGenerator
 // **************************************************************************
 
-final $HomeStore = BindInject(
-  (i) => HomeStore(),
+final $HomeController = BindInject(
+  (i) => HomeController(
+      getUserDataUseCase: i<GetUserDataUseCase>(),
+      authStore: i<AuthStore>(),
+      store: i<HomeStore>()),
   isSingleton: true,
   isLazy: true,
 );
@@ -18,26 +21,11 @@ final $HomeStore = BindInject(
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$HomeStore on _HomeStoreBase, Store {
-  final _$adressAtom = Atom(name: '_HomeStoreBase.adress');
-
-  @override
-  AdressEntity? get adress {
-    _$adressAtom.reportRead();
-    return super.adress;
-  }
-
-  @override
-  set adress(AdressEntity? value) {
-    _$adressAtom.reportWrite(value, super.adress, () {
-      super.adress = value;
-    });
-  }
-
+mixin _$HomeController on _HomeControllerBase, Store {
   @override
   String toString() {
     return '''
-adress: ${adress}
+
     ''';
   }
 }

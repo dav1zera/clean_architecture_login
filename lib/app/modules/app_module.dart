@@ -24,15 +24,29 @@ class AppModule extends Module {
         $SplashScreenController,
         Bind((i) => FirebaseAuth.instance),
         Bind((i) => FirebaseFirestore.instance),
-        Bind((i) => Connectivity()),
+        Bind(
+          (i) => Connectivity(),
+        ),
         ...LoginModule.export,
       ];
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute("/", child: (_, __) => const SplashScreenPage()),
-        ModuleRoute("/login", module: LoginModule()),
-        ModuleRoute("/register", module: RegisterModule()),
-        ModuleRoute("/home", module: HomeModule()),
+        ChildRoute(
+          "/",
+          child: (_, __) => const SplashScreenPage(),
+        ),
+        ModuleRoute(
+          "/login",
+          module: LoginModule(),
+        ),
+        ModuleRoute(
+          "/register",
+          module: RegisterModule(),
+        ),
+        ModuleRoute(
+          "/home",
+          module: HomeModule(),
+        ),
       ];
 }

@@ -2,6 +2,7 @@ import 'package:clean_login/app/commons/widgets/text_form_field.dart';
 import 'package:clean_login/app/modules/register/presentation/pages/adress/adress_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../../commons/widgets/container_box.dart';
@@ -106,10 +107,15 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
               height: 4,
             ),
             if (widget.controller.store.hasError)
-              const Text(
+              Text(
                 "Cep inválido",
-                style: TextStyle(
-                  color: Colors.red,
+                style: GoogleFonts.ovo(
+                  fontSize: 10,
+                  textStyle: TextStyle(
+                    color: Color(
+                      0xFFB30000,
+                    ),
+                  ),
                 ),
               )
           ],
