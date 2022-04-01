@@ -1,3 +1,4 @@
+import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
 import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
 import 'package:clean_login/app/core/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
@@ -9,7 +10,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 part 'create_user_email.g.dart';
 
 abstract class CreateUserEmailUseCase {
-  Future<Either<Failure, String>> call(Credentials credentials);
+  Future<Either<Failure, UserEntity>> call(Credentials credentials);
 }
 
 @Injectable(singleton: false)
@@ -19,7 +20,7 @@ class CreateUserEmailUseCaseImpl implements CreateUserEmailUseCase {
 
   CreateUserEmailUseCaseImpl(this.registerRepository, this.connectivityService);
   @override
-  Future<Either<Failure, String>> call(Credentials credentials) async {
+  Future<Either<Failure, UserEntity>> call(Credentials credentials) async {
     final result = await connectivityService.isOnline();
     if (result.isLeft()) {
       return Left(

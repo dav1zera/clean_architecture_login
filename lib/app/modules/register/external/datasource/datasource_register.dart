@@ -1,4 +1,5 @@
 import 'package:clean_login/app/commons/domain/infra/adress_model.dart';
+import 'package:clean_login/app/commons/domain/infra/user_model.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
 import 'package:clean_login/app/modules/register/infra/models/result_cep.dart';
@@ -24,7 +25,7 @@ class DataSourceRegisterImpl implements RegisterDataSource {
   });
 
   @override
-  Future<String?> createUserEmail({
+  Future<UserModel> createUserEmail({
     required Credentials credentials,
   }) async {
     UserCredential userCredential = await auth.createUserWithEmailAndPassword(
@@ -37,7 +38,11 @@ class DataSourceRegisterImpl implements RegisterDataSource {
     }
 
     await userCredential.user!.updateDisplayName(credentials.name);
-    return auth.currentUser!.uid;
+    return UserModel(
+      name: userCredential.user?.displayName ?? "",
+      uid: userCredential.user?.uid ?? "",
+      email: userCredential.user?.email ?? "",
+    );
   }
 
   @override

@@ -1,5 +1,8 @@
-import 'package:clean_login/app/core/connectivity/domain/services/connectivity_service.dart';
-import 'package:clean_login/app/modules/login/domain/entities/user_entity.dart';
+import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
+import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
+import 'package:clean_login/app/core/connectivity/domain/errors/errors.dart';
+import 'package:clean_login/app/core/errors/errors.dart';
+import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
 import 'package:clean_login/app/modules/login/domain/repositories/login_repository.dart';
@@ -14,15 +17,28 @@ class ConnectivityServiceMock extends Mock implements ConnectivityService {}
 
 main() {
   final repository = LoginRepositoryMock();
-  final connectivityservice = ConnectivityServiceMock();
+  final connectivityService = ConnectivityServiceMock();
 
-  final usecase = LoginWithEmailUseCaseImpl(repository, connectivityservice);
+  final useCase = LoginWithEmailUseCaseImpl(repository, connectivityService);
+  final credentials = Credentials(email: "teste@mail.com", password: "123456");
 
+  setUpAll(
+    () {
+      when(() => connectivityService.isOnline())
+          .thenAnswer((_) async => Right(unit));
+    },
+  );
+
+  //Teste de conexão (Primeiro teste)
   test(
-    "test Failure call usecase",
+    "test Failure when user is offline",
     () async {
-      when(() => connectivityservice.isOnline()).thenAnswer((_) async => false);
-      final result = await usecase();
+      when(() => connectivityService.isOnline()).thenAnswer(
+        (_) async => Left(
+          ErrorConnection(message: FailureMessages.Offline_Connection),
+        ),
+      );
+      final result = await useCase(credentials);
 
       expect(
           result.leftMap((failure) => failure is ErrorLoginEmail), left(true));
@@ -32,19 +48,17 @@ main() {
     },
   );
 
-  test(
-    "test Success call usecase",
-    () async {
-      final user =
-          UserEntity(uid: "123456", email: "zeca@hotmail.com", name: "Davi");
+  //Teste de validar as Credenciais(Segundo teste)
 
-      when(() => connectivityservice.isOnline()).thenAnswer((_) async => true);
-      when(() => repository.executeLoginEmail())
-          .thenAnswer((_) async => Right(user));
+  test("Validate user credentials", () async {});
 
-      final result = await usecase();
-      expect(result, Right(user));
-      expect(result.fold(id, (user) => user.name), "Davi");
-    },
-  );
+//   test("test sucess call usecase", () async {
+//     final user =
+//         UserEntity(uid: "123456", name: "Davi", email: "zeca@hotmail.com");
+//     when(() => connectivityService.isOnline())
+//         .thenAnswer((_) async => Right(unit));
+//     when(() => repository.executeLoginEmail())
+//         .thenAnswer((_) async => Right(user));
+//   });
+// }
 }

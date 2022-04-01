@@ -1,3 +1,5 @@
+import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
+import 'package:clean_login/app/commons/domain/mappers/user_mapper.dart';
 import 'package:clean_login/app/core/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';
@@ -37,19 +39,14 @@ class RegisterRepositoryImpl implements RegisterRepository {
   }
 
   @override
-  Future<Either<Failure, String>> createUserEmail({
+  Future<Either<Failure, UserEntity>> createUserEmail({
     required Credentials credentials,
   }) async {
     try {
-      final uid = await dataSource.createUserEmail(credentials: credentials);
-      if (uid == null) {
-        return Left(
-          ErrorRegister(
-            message: FailureMessages.Error_Create_User,
-          ),
-        );
-      }
-      return Right(uid);
+      final model = await dataSource.createUserEmail(credentials: credentials);
+      final adressEntity = UserMapper.toEntity(model);
+
+      return Right(adressEntity);
     } catch (e) {
       return Left(
         ErrorRegister(

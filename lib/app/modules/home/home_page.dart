@@ -1,7 +1,6 @@
 import 'package:clean_login/app/modules/home/home_controller.dart';
 import 'package:clean_login/app/modules/home/presentation/widgets/box_form_home.dart';
 import 'package:clean_login/app/modules/home/presentation/widgets/profile_image.dart';
-import 'package:clean_login/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +23,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Color(0xFF539FCB),
       body: ListView(
@@ -40,7 +38,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           ),
           Center(
             child: Text(
-              "Olá ${controller.authStore.user!.name}",
+              "Olá ${controller.authStore.user?.name}",
               style: GoogleFonts.neuton(
                   fontSize: 30,
                   fontStyle: FontStyle.normal,

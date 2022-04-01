@@ -14,7 +14,7 @@ void main() async {
   runApp(
     ModularApp(
       module: AppModule(),
-      child: const AppWidget(),
+      child: AppWidget(),
     ),
   );
 }

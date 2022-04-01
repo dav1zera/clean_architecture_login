@@ -7,7 +7,8 @@ part of 'register_controller.dart';
 // **************************************************************************
 
 final $RegisterController = BindInject(
-  (i) => RegisterController(i<RegisterStore>(), i<CreateUserEmailUseCase>()),
+  (i) => RegisterController(
+      i<RegisterStore>(), i<CreateUserEmailUseCase>(), i<AuthStore>()),
   isSingleton: true,
   isLazy: true,
 );

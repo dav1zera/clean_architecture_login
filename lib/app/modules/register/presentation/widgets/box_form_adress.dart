@@ -7,20 +7,16 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../../commons/widgets/container_box.dart';
 
-class BoxFormAdress extends StatefulWidget {
+// ignore: must_be_immutable
+class BoxFormAdress extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final AdressController controller;
-  const BoxFormAdress({
+  BoxFormAdress({
     Key? key,
     required this.formKey,
     required this.controller,
   }) : super(key: key);
 
-  @override
-  State<BoxFormAdress> createState() => _BoxFormAdressState();
-}
-
-class _BoxFormAdressState extends State<BoxFormAdress> {
   var maskFormatterCep = MaskTextInputFormatter(
     mask: '#####-###',
     filter: {
@@ -33,7 +29,7 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
     return Observer(
       builder: (_) {
         return ContainerBox(
-          formKey: widget.formKey,
+          formKey: formKey,
           height: 140.0,
           children: [
             const SizedBox(
@@ -42,15 +38,13 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
             CampText(
               width: MediaQuery.of(context).size.width * 0.3,
               text: "CEP",
-              controller: widget.controller.store.cepTextController,
-              onChanged: widget.controller.onChangedCep,
+              controller: controller.store.cepTextController,
+              onChanged: controller.onChangedCep,
               inputFormatters: [maskFormatterCep],
               onTap: () {
-                setState(
-                  () {
-                    widget.controller.store.hasError = false;
-                  },
-                );
+                () {
+                  controller.store.hasError = false;
+                };
               },
             ),
             const SizedBox(
@@ -61,7 +55,7 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
                 CampText(
                   width: MediaQuery.of(context).size.width * 0.6,
                   text: "Rua",
-                  controller: widget.controller.store.ruaTextController,
+                  controller: controller.store.ruaTextController,
                 ),
                 const SizedBox(
                   width: 10,
@@ -69,7 +63,7 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
                 Expanded(
                   child: CampText(
                     text: "Num",
-                    controller: widget.controller.store.numTextController,
+                    controller: controller.store.numTextController,
                   ),
                 )
               ],
@@ -82,7 +76,7 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
                 CampText(
                   width: MediaQuery.of(context).size.width * 0.5,
                   text: "Bairro",
-                  controller: widget.controller.store.bairroTextController,
+                  controller: controller.store.bairroTextController,
                 ),
                 const SizedBox(
                   width: 10,
@@ -90,7 +84,7 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
                 Expanded(
                   child: CampText(
                     text: "Complemento",
-                    controller: widget.controller.store.compleTextController,
+                    controller: controller.store.compleTextController,
                   ),
                 )
               ],
@@ -101,12 +95,27 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
             CampText(
               width: MediaQuery.of(context).size.width * 0.6,
               text: "Cidade",
-              controller: widget.controller.store.cidadeTextController,
+              controller: controller.store.cidadeTextController,
             ),
             const SizedBox(
               height: 4,
             ),
-            if (widget.controller.store.hasError)
+            Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Align(
+                alignment: const Alignment(1, 0),
+                child: Text(
+                  controller.store.statusDescription ?? "",
+                  style: GoogleFonts.ovo(
+                    fontSize: 10,
+                    textStyle: const TextStyle(
+                      color: Color(0xFFB30000),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            if (controller.store.hasError)
               Text(
                 "Cep inválido",
                 style: GoogleFonts.ovo(

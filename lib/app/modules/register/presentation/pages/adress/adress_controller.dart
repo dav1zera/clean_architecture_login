@@ -1,3 +1,4 @@
+import 'package:clean_login/app/core/stores/auth_store.dart';
 import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
 import 'package:clean_login/app/modules/register/domain/usecases/get_adress_by_cep.dart';
 import 'package:clean_login/app/modules/register/domain/usecases/register_adress.dart';
@@ -13,12 +14,14 @@ abstract class _AdressControllerBase with Store {
   final GetAdressByCepUseCase getAdress;
   final RegisterAdressUseCase registerAdressUseCase;
   final AdressStore store;
+  final AuthStore authStore;
   String? uid;
 
   _AdressControllerBase(
     this.store,
     this.getAdress,
     this.registerAdressUseCase,
+    this.authStore,
   );
 
   callAdressRepository() async {
@@ -59,7 +62,15 @@ abstract class _AdressControllerBase with Store {
       },
       (_) {
         store.statusDescription = null;
-        Modular.to.pushNamedAndRemoveUntil("/home", (_) => false);
+        authStore.checkLogin().then((value) {
+          if (value) {
+            Modular.to.pushReplacementNamed("/home");
+          } else {
+            Modular.to.pushReplacementNamed("/login");
+          }
+        }).onError((error, stackTrace) {
+          Modular.to.pushReplacementNamed("/login");
+        });
       },
     );
   }

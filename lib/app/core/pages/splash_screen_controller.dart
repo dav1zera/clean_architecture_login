@@ -15,17 +15,17 @@ abstract class _SplashScreenControllerBase with Store {
   });
 
   init() async {
-    await Future.delayed(const Duration(
+    await Future.delayed(Duration(
       seconds: 3,
     ));
     store.checkLogin().then((value) {
       if (value) {
-        Modular.to.pushNamedAndRemoveUntil("/home", (_) => false);
+        Modular.to.pushReplacementNamed("/home");
       } else {
-        Modular.to.pushNamed("/login");
+        Modular.to.pushReplacementNamed("/login");
       }
     }).onError((error, stackTrace) {
-      Modular.to.pushNamed("/login");
+      Modular.to.pushReplacementNamed("/login");
     });
   }
 }
