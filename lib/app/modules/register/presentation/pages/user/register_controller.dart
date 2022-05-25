@@ -1,4 +1,4 @@
-import 'package:clean_login/app/core/stores/auth_store.dart';
+import 'package:clean_login/app/commons/presentation/stores/auth_store.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/register/domain/usecases/create_user_email.dart';
 import 'package:clean_login/app/modules/register/presentation/pages/user/register_store.dart';
@@ -20,7 +20,7 @@ abstract class _RegisterControllerBase with Store {
     this.authStore,
   );
 
-  onTapRegister(context) async {
+  onTapRegister() async {
     final credentials = Credentials(
       email: store.emailRegister.text,
       password: store.passowordRegister.text,

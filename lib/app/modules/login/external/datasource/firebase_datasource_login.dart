@@ -1,4 +1,4 @@
-import 'package:clean_login/app/commons/domain/infra/user_model.dart';
+import 'package:clean_login/app/commons/infra/models/user_model.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/login/domain/errors/messages.dart';

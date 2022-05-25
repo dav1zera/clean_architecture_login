@@ -1,4 +1,3 @@
-import 'package:clean_login/app/commons/controller/controller_session.dart';
 import 'package:clean_login/app/modules/app_module.dart';
 import 'package:clean_login/app/modules/app_widget.dart';
 import 'package:firebase_core/firebase_core.dart';

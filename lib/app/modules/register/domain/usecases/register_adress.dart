@@ -1,12 +1,11 @@
-import 'package:clean_login/app/commons/domain/infra/user_model.dart';
-import 'package:clean_login/app/modules/register/domain/entities/adress_entity.dart';
+import 'package:clean_login/app/commons/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/register/domain/errors/errors.dart';
 import 'package:clean_login/app/modules/register/domain/errors/messages.dart';
 import 'package:clean_login/app/modules/register/domain/repositories/register_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../core/errors/errors.dart';
+import '../../../../commons/domain/entities/adress_entity.dart';
 part 'register_adress.g.dart';
 
 abstract class RegisterAdressUseCase {

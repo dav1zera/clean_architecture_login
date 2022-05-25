@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../register/domain/entities/adress_entity.dart';
+import '../../../commons/domain/entities/adress_entity.dart';
+
 part 'home_store.g.dart';
 
 @Injectable()

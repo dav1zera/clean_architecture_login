@@ -1,4 +1,4 @@
-import '../../../errors/errors.dart';
+import 'package:clean_login/app/commons/domain/errors/errors.dart';
 
 class ErrorConnection extends Failure {
   @override

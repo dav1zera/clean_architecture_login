@@ -1,4 +1,4 @@
-import 'package:clean_login/app/core/errors/errors.dart';
+import 'package:clean_login/app/commons/domain/errors/errors.dart';
 
 class ErrorLoginEmail extends Failure {
   @override
@@ -9,16 +9,23 @@ class ErrorLoginEmail extends Failure {
   });
 }
 
+class ErrorSplashScreen extends Failure {
+  @override
+  final String message;
+
+  ErrorSplashScreen({required this.message});
+}
+
 class ErrorGetLoggedUser extends Failure {
   @override
   final String message;
   ErrorGetLoggedUser({required this.message});
 }
 
-class ErrorCancelledByUser extends Failure {
+class ErrorSignOut extends Failure {
   @override
   final String message;
-  ErrorCancelledByUser({required this.message});
+  ErrorSignOut({required this.message});
 }
 
 class ErrorLogout extends Failure {

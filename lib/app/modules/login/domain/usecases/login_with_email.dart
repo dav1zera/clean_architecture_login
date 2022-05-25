@@ -1,6 +1,6 @@
 import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
 import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
-import 'package:clean_login/app/core/errors/errors.dart';
+import 'package:clean_login/app/commons/domain/errors/errors.dart';
 
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/errors/errors.dart';

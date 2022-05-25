@@ -32,4 +32,11 @@ class FailureMessages {
 
   // ignore: non_constant_identifier_names
   static String get Invalid_Data_User => "Dados inválidos";
+
+  static String get Error_Register_Adress => "Erro ao registrar endereço";
+
+  static String get Invalid_Adress => "Endereço inválido";
+
+  static String get Splash_Screen_Load_Error =>
+      "Error ao carregar a tela inicial";
 }

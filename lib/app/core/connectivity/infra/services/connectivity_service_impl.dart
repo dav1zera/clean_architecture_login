@@ -1,10 +1,12 @@
 import 'package:clean_login/app/core/connectivity/domain/connectivity_service.dart';
 import 'package:clean_login/app/core/connectivity/domain/errors/errors.dart';
 import 'package:clean_login/app/core/connectivity/infra/drivers/connectivity_driver.dart';
-import 'package:clean_login/app/core/errors/errors.dart';
-import 'package:clean_login/app/core/errors/messages.dart';
+import 'package:clean_login/app/commons/domain/errors/errors.dart';
+import 'package:clean_login/app/commons/domain/errors/messages.dart';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 part 'connectivity_service_impl.g.dart';
 
 @Injectable(singleton: false)

@@ -1,8 +1,8 @@
-import 'package:clean_login/app/commons/widgets/text_form_field.dart';
+import 'package:clean_login/app/commons/presentation/widgets/container_box.dart';
+import 'package:clean_login/app/commons/presentation/widgets/text_form_field.dart';
 import 'package:clean_login/app/modules/register/presentation/pages/user/register_controller.dart';
 import 'package:flutter/material.dart';
 
-import 'package:clean_login/app/commons/widgets/container_box.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 

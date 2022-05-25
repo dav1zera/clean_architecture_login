@@ -1,10 +1,11 @@
-import 'package:clean_login/app/commons/widgets/screen_image.dart';
+import 'package:clean_login/app/commons/presentation/widgets/custom_button.dart';
+import 'package:clean_login/app/commons/presentation/widgets/screen_image.dart';
+import 'package:clean_login/app/commons/presentation/widgets/urban_image.dart';
 import 'package:clean_login/app/modules/register/presentation/pages/user/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../commons/widgets/custom_button.dart';
-import '../../../../../commons/widgets/urban_image.dart';
+
 import '../../widgets/box_form_register.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -62,7 +63,7 @@ class _RegisterPageState
           CustomButton(
             text: "Próximo",
             onPressed: () {
-              controller.onTapRegister(context);
+              controller.onTapRegister();
             },
           ),
           const SizedBox(

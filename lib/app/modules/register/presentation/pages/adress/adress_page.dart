@@ -1,11 +1,11 @@
-import 'package:clean_login/app/commons/widgets/urban_image.dart';
+import 'package:clean_login/app/commons/presentation/widgets/custom_button.dart';
+import 'package:clean_login/app/commons/presentation/widgets/screen_image.dart';
+import 'package:clean_login/app/commons/presentation/widgets/urban_image.dart';
 import 'package:clean_login/app/modules/register/presentation/pages/adress/adress_controller.dart';
 import 'package:clean_login/app/modules/register/presentation/widgets/box_form_adress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../../commons/widgets/custom_button.dart';
-import '../../../../../commons/widgets/screen_image.dart';
 
 class AdressPage extends StatefulWidget {
   final String uid;
@@ -75,7 +75,7 @@ class _AdressPageState extends ModularState<AdressPage, AdressController> {
               CustomButton(
                 text: "Finalizar",
                 onPressed: () {
-                  controller.onTapRegisterAdress(context);
+                  controller.onTapRegisterAdress();
                 },
               ),
               const UrbanImage(image: "assets/images/urban.png"),

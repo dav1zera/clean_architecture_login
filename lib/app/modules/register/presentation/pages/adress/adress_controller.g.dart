@@ -8,7 +8,7 @@ part of 'adress_controller.dart';
 
 final $AdressController = BindInject(
   (i) => AdressController(i<AdressStore>(), i<GetAdressByCepUseCase>(),
-      i<RegisterAdressUseCase>(), i<AuthStore>()),
+      i<RegisterAdressUseCase>(), i<AuthStore>(), i<AuthController>()),
   isSingleton: true,
   isLazy: true,
 );

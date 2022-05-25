@@ -1,4 +1,4 @@
-import 'package:clean_login/app/core/pages/splash_screen_controller.dart';
+import 'package:clean_login/app/commons/presentation/controllers/splash_screen_controller.dart';
 import 'package:clean_login/app/modules/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

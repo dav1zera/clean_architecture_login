@@ -1,4 +1,4 @@
-import 'package:clean_login/app/core/stores/auth_store.dart';
+import 'package:clean_login/app/commons/presentation/stores/auth_store.dart';
 import 'package:clean_login/app/modules/login/domain/entities/credentials.dart';
 import 'package:clean_login/app/modules/login/domain/usecases/login_with_email.dart';
 import 'package:clean_login/app/modules/login/presentation/login_store.dart';
@@ -10,23 +10,23 @@ part 'login_controller.g.dart';
 class LoginController = _LoginControllerBase with _$LoginController;
 
 abstract class _LoginControllerBase with Store {
-  final LoginWithEmailUseCase loginWithEmail;
+  final LoginWithEmailUseCase loginWithEmailUseCase;
 
   final AuthStore authStore;
   final LoginStore store;
 
   _LoginControllerBase(
-    this.loginWithEmail,
+    this.loginWithEmailUseCase,
     this.authStore,
     this.store,
   );
 
-  enterLoginEmail(context) async {
+  enterLoginEmail() async {
     final credentials = Credentials(
       email: store.emailLogin.text,
       password: store.passwordLogin.text,
     );
-    final result = await loginWithEmail(credentials);
+    final result = await loginWithEmailUseCase(credentials);
 
     result.fold(
       (failure) {

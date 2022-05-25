@@ -1,5 +1,5 @@
-import 'package:clean_login/app/commons/domain/infra/adress_model.dart';
-import 'package:clean_login/app/core/stores/auth_store.dart';
+import 'package:clean_login/app/commons/infra/models/adress_model.dart';
+import 'package:clean_login/app/commons/presentation/stores/auth_store.dart';
 import 'package:clean_login/app/modules/home/infra/datasource/home_datasource.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

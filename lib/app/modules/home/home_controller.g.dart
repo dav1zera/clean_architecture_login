@@ -10,7 +10,8 @@ final $HomeController = BindInject(
   (i) => HomeController(
       getUserDataUseCase: i<GetUserDataUseCase>(),
       authStore: i<AuthStore>(),
-      store: i<HomeStore>()),
+      store: i<HomeStore>(),
+      authController: i<AuthController>()),
   isSingleton: true,
   isLazy: true,
 );

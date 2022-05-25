@@ -1,6 +1,6 @@
-import 'package:clean_login/app/core/errors/errors.dart';
-
 //Register Errors
+import 'package:clean_login/app/commons/domain/errors/errors.dart';
+
 class ErrorRegister extends Failure {
   @override
   final String message;

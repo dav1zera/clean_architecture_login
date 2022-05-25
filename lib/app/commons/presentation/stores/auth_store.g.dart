@@ -7,7 +7,7 @@ part of 'auth_store.dart';
 // **************************************************************************
 
 final $AuthStore = BindInject(
-  (i) => AuthStore(i<GetLoggedUserUseCase>(), i<Logout>()),
+  (i) => AuthStore(),
   isSingleton: true,
   isLazy: true,
 );

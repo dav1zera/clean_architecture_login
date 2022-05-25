@@ -1,6 +1,7 @@
 import 'package:clean_login/app/core/connectivity/infra/drivers/connectivity_driver.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 part 'flutter_connectivity_driver_impl.g.dart';
 
 @Injectable(singleton: false)

@@ -1,5 +1,5 @@
 import 'package:clean_login/app/commons/domain/entities/user_entity.dart';
-import 'package:clean_login/app/commons/domain/infra/user_model.dart';
+import 'package:clean_login/app/commons/infra/models/user_model.dart';
 
 class UserMapper {
   static UserEntity toEntity(UserModel model) {
