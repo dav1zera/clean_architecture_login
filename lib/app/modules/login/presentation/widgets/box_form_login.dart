@@ -1,6 +1,6 @@
+import 'package:clean_login/app/commons/presentation/keys/keys.dart';
 import 'package:clean_login/app/commons/presentation/widgets/container_box.dart';
 import 'package:clean_login/app/commons/presentation/widgets/text_form_field.dart';
-
 import 'package:clean_login/app/modules/login/presentation/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -28,6 +28,7 @@ class BoxFormLogin extends StatelessWidget {
               height: 5,
             ),
             CampText(
+              key: Key(loginEmail),
               text: "E-mail",
               image: "assets/images/man.png",
               controller: controller.store.emailLogin,
@@ -36,6 +37,7 @@ class BoxFormLogin extends StatelessWidget {
               height: 8,
             ),
             CampText(
+              key: Key(loginPassword),
               text: "Senha",
               image: "assets/images/lock.png",
               obscureText: true,
