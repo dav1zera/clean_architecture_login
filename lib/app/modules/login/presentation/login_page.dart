@@ -45,16 +45,21 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           const SizedBox(
             height: 16,
           ),
-          CustomButton(
-            key: Key(tapButtonLogin),
-            text: "Login",
-            onPressed: () {
-              setState(() {
-                formKey.currentState?.validate();
-              });
-              controller.enterLoginEmail();
-            },
-          ),
+          ValueListenableBuilder(
+              valueListenable: controller.store.isLoading,
+              builder: (context, bool isLoading, _) {
+                return CustomButton(
+                  key: Key(tapButtonLogin),
+                  text: "Login",
+                  isLoading: isLoading,
+                  onPressed: () {
+                    setState(() {
+                      formKey.currentState?.validate();
+                    });
+                    controller.enterLoginEmail();
+                  },
+                );
+              }),
           const SizedBox(
             height: 16,
           ),

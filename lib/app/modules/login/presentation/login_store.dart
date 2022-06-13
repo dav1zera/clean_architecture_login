@@ -11,6 +11,7 @@ abstract class _LoginStoreBase with Store {
   bool isValidPasswdLogin = false;
   TextEditingController emailLogin = TextEditingController();
   TextEditingController passwordLogin = TextEditingController();
+  final ValueNotifier<bool> isLoading = ValueNotifier(false);
 
   @observable
   String? statusDescription;

@@ -22,12 +22,15 @@ abstract class _LoginControllerBase with Store {
   );
 
   enterLoginEmail() async {
+    store.isLoading.value = true;
+
     final credentials = Credentials(
       email: store.emailLogin.text,
       password: store.passwordLogin.text,
     );
     final result = await loginWithEmailUseCase(credentials);
 
+    store.isLoading.value = false;
     result.fold(
       (failure) {
         store.statusDescription = failure.message;

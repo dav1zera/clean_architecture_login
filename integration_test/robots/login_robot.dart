@@ -23,10 +23,6 @@ class LoginRobot extends BaseRobot {
   Future<void> onTapButton() async {
     final buttonLogin = find.byKey(Key(tapButtonLogin));
     await widgetTester.testTextInput.receiveAction(TextInputAction.done);
-    await widgetTester.pump();
-    await Future.delayed(
-      const Duration(seconds: 2),
-    );
     await widgetTester.tap(buttonLogin);
     await widgetTester.pumpAndSettle();
   }
