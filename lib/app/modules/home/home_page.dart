@@ -1,3 +1,4 @@
+import 'package:clean_login/app/commons/presentation/keys/keys.dart';
 import 'package:clean_login/app/commons/presentation/widgets/custom_button.dart';
 import 'package:clean_login/app/modules/home/home_controller.dart';
 import 'package:clean_login/app/modules/home/presentation/widgets/box_form_home.dart';
@@ -66,6 +67,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             height: 10,
           ),
           CustomButton(
+            key: Key(logoutButton),
             text: "Deslogar",
             onPressed: () {
               controller.onTapLogout();

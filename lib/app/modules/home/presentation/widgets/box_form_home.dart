@@ -1,3 +1,4 @@
+import 'package:clean_login/app/commons/presentation/keys/keys.dart';
 import 'package:clean_login/app/commons/presentation/widgets/container_box.dart';
 import 'package:clean_login/app/modules/home/home_controller.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class _BoxFormWelcomeState extends State<BoxFormWelcome> {
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       return ContainerBox(
+        key: Key(homePage),
         height: 200.0,
         children: [
           SizedBox(

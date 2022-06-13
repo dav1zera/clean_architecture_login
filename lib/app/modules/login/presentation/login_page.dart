@@ -1,3 +1,4 @@
+import 'package:clean_login/app/commons/presentation/keys/keys.dart';
 import 'package:clean_login/app/commons/presentation/widgets/custom_button.dart';
 import 'package:clean_login/app/commons/presentation/widgets/screen_image.dart';
 import 'package:clean_login/app/commons/presentation/widgets/urban_image.dart';
@@ -45,6 +46,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             height: 16,
           ),
           CustomButton(
+            key: Key(tapButtonLogin),
             text: "Login",
             onPressed: () {
               setState(() {
