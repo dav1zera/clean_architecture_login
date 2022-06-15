@@ -24,12 +24,12 @@ void main() {
       await loginRobot.inputPassword();
       await loginRobot.onTapButton();
       await homeRobot.verifyKeyPage();
-      await homeRobot.verifyInformationUser();
-      await homeRobot.onTapLogout();
 
+      await homeRobot.verifyInformationUser();
       await Future.delayed(
-        const Duration(seconds: 2),
+        const Duration(seconds: 5),
       );
+      await homeRobot.onTapLogout();
     },
   );
 }

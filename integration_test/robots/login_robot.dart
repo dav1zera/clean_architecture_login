@@ -10,7 +10,7 @@ class LoginRobot extends BaseRobot {
 
   Future<void> inputEmail() async {
     final inputLogin = find.byKey(Key(loginEmail));
-    await widgetTester.enterText(inputLogin, "user@mail.com");
+    await widgetTester.enterText(inputLogin, "teste010@gmail.com");
     await widgetTester.pumpAndSettle();
   }
 

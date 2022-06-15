@@ -8,14 +8,14 @@ class HomeRobot extends BaseRobot {
   HomeRobot({required WidgetTester widgetTester})
       : super(widgetTester: widgetTester);
 
-  Future<void> verifyInformationUser() async {
+  Future<void> verifyKeyPage() async {
     await find.byKey(Key(homePage));
   }
 
-  Future<void> verifyKeyPage() async {
-    final emailFinder = await find.text("user@mail.com");
-    final userFinder = await find.text("user user");
-    final idFinder = await find.text("ZMB4mEft4vUFjrzYkuGdV2H8b7L2");
+  Future<void> verifyInformationUser() async {
+    final emailFinder = await find.text("Seu Email: teste010@gmail.com");
+    final userFinder = await find.text("Seu Nome: Davi Teste");
+    final idFinder = await find.text("Seu ID: KXWoriD9OpUkMtShw4FPyuV9Jxg1");
     final logoutFinder = await find.byKey(Key(logoutButton));
 
     expect(emailFinder, findsOneWidget);
