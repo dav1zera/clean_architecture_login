@@ -64,10 +64,14 @@ main() {
   );
 
   group(
-    "Login com email e senha",
+    ''' Dado as credenciais digitadas pelo usuário
+        Quando ele executar o login
+        Então será logado com sucesso ou retornará uma exceção ''',
     () {
       test(
-        "Testando fluxo de login com email e senha",
+        ''' Dado as credenciais digitadas pelo usuário
+            Quando ele executar o login
+            Então será logado com sucesso ''',
         () async {
           final result = await sut.executeLoginEmail(credentials: credentials);
           expect(result, isA<UserModel>());
@@ -78,7 +82,9 @@ main() {
       );
 
       test(
-        "fluxo de erro",
+        ''' Dado as credencias digitadas pelo usuário
+            Quando ele executar o login
+            Então será retornado uma exceção ''',
         () async {
           when(() => loginUser.user).thenReturn(null);
           final result = sut.executeLoginEmail(credentials: credentials);

@@ -55,7 +55,9 @@ main() {
   );
 
   test(
-    "Testando Fluxo de controller",
+    ''' Dado as credenciais digitadas pelo usuário 
+        Quando ele tentar fazer login
+        Então eu quero que ele faça uma navegação de tela ''',
     () async {
       when(
         () => loginWithEmailUseCase(
@@ -83,7 +85,9 @@ main() {
   );
 
   test(
-    "Testando fluxo de erro",
+    ''' Dado que o usuário está offline 
+        Quando ele tentar fazer login
+        Então eu quero que ele retorne um erro de conexão ''',
     () async {
       when(
         () => loginWithEmailUseCase(any()),
