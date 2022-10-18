@@ -69,7 +69,9 @@ main() {
   );
 
   test(
-    "Testando fluxo de controller",
+    ''' Dados as credenciais digitadas pelo usuário
+        Quando ele tentar fazer um cadastro
+        Então será cadastrado com sucesso ''',
     () async {
       when(
         () => createUserEmailUseCase(
@@ -105,7 +107,9 @@ main() {
   );
 
   test(
-    "Testando o erro",
+    ''' Dado as credenciais digitadas pelo usuário
+        Quando tentar fazer o cadastro 
+        Então quero que retorne um erro ''',
     () async {
       when(
         () => createUserEmailUseCase(

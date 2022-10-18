@@ -46,7 +46,9 @@ main() {
   );
 
   test(
-    "Testando fluxo de controller",
+    ''' Dado que o usuário esteja cadastrado
+        Quando ele concluir o cadastro
+        Então eu quero que mostre seus dados ''',
     () async {
       when(() => getUserDataUseCase()).thenAnswer(
         (_) async => Right(adressEntity),
@@ -58,7 +60,9 @@ main() {
   );
 
   test(
-    "fluxo de erro",
+    ''' Dado que o usuário esteja cadastrado
+        Quando ele concluir o cadastro
+        Então eu quero que retorne um erro ''',
     () async {
       when(() => getUserDataUseCase()).thenAnswer(
         (_) async => Left(

@@ -20,7 +20,6 @@ class ConnectivityServiceMock extends Mock implements ConnectivityService {}
 Given/Arrange: definir um estado conhecido;
 When/Act: rodar a aplicação;
 Then/Assert: certificar-se de que o novo estado é o estado esperado.
-
 */
 
 main() {

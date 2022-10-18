@@ -82,7 +82,9 @@ main() {
   );
 
   test(
-    "Fluxo de check login",
+    ''' Dado as informações cadastradas do usuário
+        Quando ele tentar fazer login
+        Então retornar esses dados ''',
     () async {
       when(() => getLoggedUserUseCase()).thenAnswer(
         (_) async => Right(
@@ -99,7 +101,9 @@ main() {
   );
 
   test(
-    "Fluxo de check login(false)",
+    ''' Dado as informações cadastradas do usuário
+        Quando ele tentar fazer login
+        Então retornar um erro ''',
     () async {
       when(() => getLoggedUserUseCase()).thenAnswer(
         (_) async => Left(
@@ -112,7 +116,9 @@ main() {
   );
 
   test(
-    "Fluxo de logout(Auth Controller)",
+    ''' Dado que o usuário esteja cadastrado 
+        Quando ele tentar fazer logout 
+        Então quero que navegue para tela de login ''',
     () async {
       when(() => logout()).thenAnswer(
         (_) async => Right(
@@ -134,7 +140,9 @@ main() {
   );
 
   test(
-    "Fluxo de logout(failure)",
+    ''' Dado que o usuário esteja cadastrado 
+        Quando ele tentar fazer logout 
+        Então quero retorne um erro ''',
     () async {
       when(() => logout()).thenAnswer(
         (_) async => Left(

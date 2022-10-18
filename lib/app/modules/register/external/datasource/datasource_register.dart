@@ -36,7 +36,9 @@ class DataSourceRegisterImpl implements RegisterDataSource {
       );
     }
 
-    await userCredential.user!.updateDisplayName(credentials.name);
+    await userCredential.user!.updateDisplayName(
+      credentials.name,
+    );
     return UserModel(
       name: userCredential.user?.displayName ?? "",
       uid: userCredential.user?.uid ?? "",
@@ -45,7 +47,9 @@ class DataSourceRegisterImpl implements RegisterDataSource {
   }
 
   @override
-  Future<ResultCepModel> getRemoteAdress({required String cep}) async {
+  Future<ResultCepModel> getRemoteAdress({
+    required String cep,
+  }) async {
     try {
       Response result = await http.get(
         Uri.parse(
@@ -59,7 +63,10 @@ class DataSourceRegisterImpl implements RegisterDataSource {
   }
 
   @override
-  Future<bool> registerAdress(AdressModel adress, String uid) async {
+  Future<bool> registerAdress(
+    AdressModel adress,
+    String uid,
+  ) async {
     try {
       await firestore.collection("users").doc(uid).set({
         "adress": adress.toMap(),

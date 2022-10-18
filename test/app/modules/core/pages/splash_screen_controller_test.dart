@@ -44,7 +44,9 @@ main() {
   );
 
   test(
-    "Fluxo de init(Splash screen) = true",
+    ''' Dado que o usuário estiver logado
+        Quando carregar a splash screen
+        Então quero que navegue para tela de home ''',
     () async {
       when(() => authController.checkLogin()).thenAnswer(
         (_) async => true,
@@ -61,7 +63,9 @@ main() {
   );
 
   test(
-    "Fluxo de init(Splash screen) = false",
+    ''' Dado que o usuário não estiver logado
+        Quando carregar a splash screen
+        Então quero que navegue para tela de login ''',
     () async {
       when(() => authController.checkLogin()).thenAnswer(
         (_) async => false,
@@ -78,7 +82,9 @@ main() {
   );
 
   test(
-    "Fluxo de on error",
+    ''' Dado que o usuário não estiver com os dados corretos
+        Quando carregar a splash screen
+        Então quero que navegue para tela de login ''',
     () async {
       when(() => authController.checkLogin()).thenAnswer(
         (_) async => Future.error(

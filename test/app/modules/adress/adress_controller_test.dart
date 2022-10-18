@@ -97,7 +97,9 @@ main() {
   );
 
   test(
-    "Fluxo de controller(call adress repository)",
+    ''' Dado o cep digitado pelo usuário
+        Quando o cep estiver correto
+        Então quero que mostre as outras informações de endereço ''',
     () async {
       when(
         () => getAdressByCepUseCase(
